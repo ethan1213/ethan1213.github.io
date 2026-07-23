@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { otherProjects } from "../data/content";
+import { ArrowRight } from "lucide-react";
 import { caseStudies } from "../data/caseStudies";
 import { Reveal, SectionHeading } from "./Reveal";
 import { GithubIcon } from "./icons";
@@ -36,39 +35,35 @@ export function Projects() {
         </div>
 
         <Reveal delay={0.15} className="mt-6">
-          <p className="text-sm text-stone-500 border rule border-dashed p-5">
-            Se vienen más proyectos de IA — esta sección se actualiza constantemente.
-          </p>
+          <div className="border rule border-dashed p-6">
+            <p className="text-sm font-medium mb-3">Próximamente</p>
+            <ul className="space-y-2 text-sm text-stone-600 dark:text-stone-400">
+              <li>
+                <span className="font-mono text-rust-600 dark:text-rust-400">BIA con IA</span> — Business Impact
+                Analysis automatizado para continuidad de negocio (ISO 22301), en la línea de CiberSegurIA.
+              </li>
+              <li>
+                <span className="font-mono text-rust-600 dark:text-rust-400">Agentes con Google ADK</span> —
+                explorando agentes de IA multi-paso.
+              </li>
+              <li>
+                <span className="font-mono text-rust-600 dark:text-rust-400">Power Platform</span> — explorando
+                Power Automate y Copilot Studio para automatización empresarial.
+              </li>
+              <li>
+                <span className="font-mono text-rust-600 dark:text-rust-400">Kiro</span> — explorando desarrollo
+                asistido por IA para nuevos proyectos.
+              </li>
+            </ul>
+          </div>
         </Reveal>
 
-        <Reveal delay={0.2} className="mt-16">
-          <p className="font-mono text-xs uppercase tracking-widest text-stone-500 mb-5">Otros proyectos</p>
-          <ul className="divide-y rule border-t border-b rule">
-            {otherProjects.map((p) => (
-              <li key={p.name}>
-                <a
-                  href={p.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="group flex items-center justify-between gap-4 py-4 hover:text-rust-600 dark:hover:text-rust-400 transition-colors"
-                >
-                  <div className="min-w-0">
-                    <p className="font-medium text-sm">{p.name}</p>
-                    <p className="text-sm text-stone-500 mt-0.5 line-clamp-1">{p.description}</p>
-                  </div>
-                  <div className="flex items-center gap-3 shrink-0">
-                    <span className="hidden sm:inline text-xs font-mono text-stone-400">{p.tags.join(" · ")}</span>
-                    <ArrowUpRight size={15} className="text-stone-400 group-hover:text-rust-600 dark:group-hover:text-rust-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
-                  </div>
-                </a>
-              </li>
-            ))}
-          </ul>
+        <Reveal delay={0.2} className="mt-8">
           <a
             href="https://github.com/ethan1213"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-1.5 mt-5 text-sm text-stone-500 hover:text-stone-950 dark:hover:text-white transition-colors"
+            className="inline-flex items-center gap-1.5 text-sm text-stone-500 hover:text-stone-950 dark:hover:text-white transition-colors"
           >
             <GithubIcon size={14} /> Ver todo en GitHub
           </a>

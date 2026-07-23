@@ -8,7 +8,7 @@ export const profile = {
   pitch:
     "Construyo sistemas de IA listos para producción: agentes, RAG y automatización aplicada a problemas reales.",
   about: [
-    "Soy AI Engineer especializado en Machine Learning, Agentes de IA, RAG y automatización de procesos, actualmente cursando Ingeniería en Informática en DuocUC. Trabajo como Analista de Protección de Datos y Automatización en Samsung Electronics Chile, combinando analítica de datos, ciberseguridad y automatización en soluciones reales.",
+    "Soy AI Engineer especializado en Machine Learning, Agentes de IA, RAG y automatización de procesos, actualmente cursando Ingeniería en Informática en DuocUC. Trabajé como Analista de Protección de Datos y Automatización en Samsung Electronics Chile, combinando analítica de datos, ciberseguridad y automatización en soluciones reales.",
     "Cuento con 19 certificaciones, entre ellas Artificial Intelligence Professional Certification (CAIPC®), AWS Cloud Practitioner y Red Hat System Administration. Soy socio y charlista en la Cámara Chilena de Inteligencia Artificial (CCHIA), donde participo en proyectos y charlas sobre IA, regulación y transformación tecnológica.",
     "Mi forma de trabajar: entender la lógica primero, ponerla en práctica después, y mejorar constantemente.",
   ],
@@ -84,37 +84,6 @@ export const certifications = [
 ];
 export const certificationsTotal = 19;
 
-export const otherProjects = [
-  {
-    name: "velourbe-platform",
-    description:
-      "Plataforma full-stack construida en Java, desarrollada como prueba técnica de desarrollo Full Stack.",
-    tags: ["Java", "Full Stack"],
-    href: "https://github.com/ethan1213/velourbe-platform",
-  },
-  {
-    name: "IOT_Vina_2025",
-    description:
-      "Proyectos del curso de Internet of Things (IoT) — DuocUC Viña del Mar 2025.",
-    tags: ["C++", "IoT"],
-    href: "https://github.com/ethan1213/IOT_Vina_2025",
-  },
-  {
-    name: "CTFCampoMarte2025",
-    description:
-      "Scripts y soluciones desarrolladas para retos de Capture The Flag (CTF) de ciberseguridad.",
-    tags: ["Shell", "Ciberseguridad", "CTF"],
-    href: "https://github.com/ethan1213/CTFCampoMarte2025",
-  },
-  {
-    name: "AWS_ReStart",
-    description:
-      "Ejercicios y proyectos desarrollados durante el programa de empleabilidad cloud AWS re/Start.",
-    tags: ["Python", "AWS", "Cloud"],
-    href: "https://github.com/ethan1213/AWS_ReStart",
-  },
-];
-
 export const community = {
   org: "Cámara Chilena de Inteligencia Artificial (CCHIA)",
   role: "Socio y charlista en distintos proyectos de IA",
@@ -122,6 +91,10 @@ export const community = {
     "Participo como expositor y socio activo en CCHIA, donde comparto conocimiento sobre inteligencia artificial, regulación y ciberseguridad. Fui expositor en el webinar 'Marco Integral Ley 21.719: Ética, Regulación y Estrategias de Transformación Tecnológica', junto a Carlos Alberto Martínez.",
   quote:
     "Me gusta asistir a charlas, generar innovación y seguir mejorando constantemente: primero entender la lógica, después ponerla en práctica.",
+  links: [
+    { label: "Sitio de CCHIA", href: "https://www.cchia.cl/" },
+    { label: "CCHIA en LinkedIn", href: "https://www.linkedin.com/company/c%C3%A1mara-chilena-de-inteligencia-artificial" },
+  ],
 };
 
 export const skills = {

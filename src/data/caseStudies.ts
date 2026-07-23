@@ -24,7 +24,7 @@ export const caseStudies: CaseStudy[] = [
     stack: ["Python", "PyTorch", "ONNX", "TorchScript"],
     repo: "https://github.com/ethan1213/DetectVoice",
     overview: [
-      "DetectVoice nació durante mi paso por Samsung, donde trabajé en proyectos relacionados con inteligencia artificial, y evolucionó hacia un framework de investigación defensiva: no solo detecta audio sintético, sino que mide qué tan bien resiste esa detección frente a ataques adversariales diseñados deliberadamente para engañarla.",
+      "DetectVoice nació como proyecto final del curso SIC AI 2024 (Samsung Innovation Campus) y evolucionó hacia un framework de investigación defensiva: no solo detecta audio sintético, sino que mide qué tan bien resiste esa detección frente a ataques adversariales diseñados deliberadamente para engañarla.",
       "La pregunta que responde no es solo '¿esta voz es falsa?', sino '¿qué tan fácil es hacer que mi detector se equivoque, y cómo lo hago más robusto?'.",
     ],
     architecture: [

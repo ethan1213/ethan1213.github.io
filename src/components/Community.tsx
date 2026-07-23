@@ -1,4 +1,4 @@
-import { Users } from "lucide-react";
+import { ArrowUpRight, Users } from "lucide-react";
 import { community } from "../data/content";
 import { Reveal, SectionHeading } from "./Reveal";
 
@@ -23,6 +23,20 @@ export function Community() {
             <blockquote className="mt-6 border-l-2 border-rust-500 pl-4 font-serif italic text-stone-600 dark:text-stone-400">
               "{community.quote}"
             </blockquote>
+
+            <div className="flex flex-wrap gap-x-6 gap-y-2 mt-7 pt-6 border-t rule">
+              {community.links.map((l) => (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 text-sm font-medium text-rust-600 dark:text-rust-400 hover:underline"
+                >
+                  {l.label} <ArrowUpRight size={13} />
+                </a>
+              ))}
+            </div>
           </div>
         </Reveal>
       </div>
