@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Mail, MapPin } from "lucide-react";
+import { ArrowDown, Download, Mail, MapPin } from "lucide-react";
 import { profile } from "../data/content";
 import { GithubIcon, LinkedinIcon } from "./icons";
 
@@ -56,6 +56,13 @@ export function Hero() {
                 className="text-sm font-medium text-stone-500 dark:text-stone-400 hover:text-stone-950 dark:hover:text-white transition-colors"
               >
                 Contactar
+              </a>
+              <a
+                href={profile.cv}
+                download
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-stone-500 dark:text-stone-400 hover:text-stone-950 dark:hover:text-white transition-colors"
+              >
+                <Download size={14} /> Descargar CV
               </a>
 
               <div className="flex items-center gap-3 ml-1 text-stone-500 dark:text-stone-500">

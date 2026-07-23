@@ -16,6 +16,7 @@ export const profile = {
   github: "https://github.com/ethan1213",
   linkedin: "https://www.linkedin.com/in/ethan-astorga-contreras/",
   avatar: "/images/ethan-avatar.jpeg",
+  cv: "/cv/Ethan-Astorga-CV.pdf",
 };
 
 export const experience = [
