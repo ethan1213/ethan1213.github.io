@@ -23,6 +23,16 @@ export function Experience() {
                   <p className="text-sm text-stone-600 dark:text-stone-400">{e.company} · {e.type}</p>
                   <p className="text-sm text-stone-500 mt-1">{e.location}</p>
                   <p className="text-sm text-stone-600 dark:text-stone-400 mt-2">{e.description}</p>
+                  {"highlights" in e && e.highlights && (
+                    <ul className="mt-3 space-y-1.5">
+                      {e.highlights.map((h, i) => (
+                        <li key={i} className="text-sm text-stone-600 dark:text-stone-400 flex gap-2">
+                          <span className="text-rust-600 dark:text-rust-400 shrink-0">—</span>
+                          {h}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </li>
               ))}
             </ol>
