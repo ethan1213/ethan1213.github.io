@@ -1,23 +1,20 @@
+import { Route, Routes } from "react-router-dom";
 import { Navbar } from "./components/Navbar";
-import { Hero } from "./components/Hero";
-import { About } from "./components/About";
-import { Experience } from "./components/Experience";
-import { Projects } from "./components/Projects";
-import { Community } from "./components/Community";
-import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
+import { ScrollToTop } from "./components/ScrollToTop";
+import { Home } from "./pages/Home";
+import { ProjectDetail } from "./pages/ProjectDetail";
 
 function App() {
   return (
     <div className="min-h-screen">
+      <ScrollToTop />
       <Navbar />
       <main>
-        <Hero />
-        <About />
-        <Experience />
-        <Projects />
-        <Community />
-        <Contact />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/proyectos/:slug" element={<ProjectDetail />} />
+        </Routes>
       </main>
       <Footer />
     </div>

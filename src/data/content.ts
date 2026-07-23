@@ -27,8 +27,8 @@ export const experience = [
     duration: "7 meses",
     location: "Chile · Presencial",
     description:
-      "Analítica de datos, automatización de procesos y ciberseguridad aplicada a la operación del negocio.",
-    skills: ["Analítica de datos", "Automatización de procesos", "Ciberseguridad"],
+      "Analítica de datos, automatización de procesos, ciberseguridad y proyectos relacionados con inteligencia artificial aplicados a la operación del negocio.",
+    skills: ["Analítica de datos", "Automatización de procesos", "Ciberseguridad", "IA aplicada"],
   },
   {
     company: "Dual Vision",
@@ -84,22 +84,7 @@ export const certifications = [
 ];
 export const certificationsTotal = 19;
 
-export const projects = [
-  {
-    name: "DetectVoice",
-    description:
-      "Dos modelos de Machine Learning (CNN y RNN) que identifican voces falsas — detección de deepfakes de audio. Proyecto asociado a Samsung Innovation, entrenado con ~3.000 muestras y en mejora continua.",
-    tags: ["Python", "TensorFlow", "Machine Learning", "Audio AI"],
-    href: "https://github.com/ethan1213/DetectVoice",
-    featured: true,
-  },
-  {
-    name: "CiberSegurIA",
-    description:
-      "Códigos e implementaciones que combinan inteligencia artificial y ciberseguridad para detección y análisis de amenazas.",
-    tags: ["Python", "Ciberseguridad", "IA"],
-    href: "https://github.com/ethan1213/CiberSegurIA",
-  },
+export const otherProjects = [
   {
     name: "velourbe-platform",
     description:

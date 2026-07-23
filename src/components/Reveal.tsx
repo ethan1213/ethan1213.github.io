@@ -26,8 +26,8 @@ export function Reveal({
 export function SectionHeading({ eyebrow, title }: { eyebrow: string; title: string }) {
   return (
     <Reveal className="mb-12">
-      <p className="font-mono text-xs uppercase tracking-widest text-cyan-glow mb-2">{eyebrow}</p>
-      <h2 className="font-heading font-semibold text-3xl md:text-4xl tracking-tight">{title}</h2>
+      <p className="font-mono text-xs uppercase tracking-widest text-rust-600 dark:text-rust-400 mb-3">{eyebrow}</p>
+      <h2 className="font-serif text-3xl md:text-[2.75rem] leading-tight tracking-tight">{title}</h2>
     </Reveal>
   );
 }

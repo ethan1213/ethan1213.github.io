@@ -4,28 +4,15 @@
 
 @theme {
   --font-sans: "Inter", system-ui, sans-serif;
-  --font-heading: "Space Grotesk", system-ui, sans-serif;
+  --font-serif: "Fraunces", "Iowan Old Style", Georgia, serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
-  --color-ink-950: #08080c;
-  --color-ink-900: #0a0a10;
-  --color-ink-850: #101017;
-  --color-ink-800: #14141d;
-  --color-ink-700: #1c1c28;
-  --color-ink-600: #2a2a3a;
-  --color-ink-500: #4b4b60;
+  --color-rust-700: #9a3b1c;
+  --color-rust-600: #b8461f;
+  --color-rust-500: #c8552d;
+  --color-rust-400: #d97847;
 
-  --color-cyan-glow: #22d3ee;
-  --color-violet-glow: #a855f7;
-
-  --animate-float: float 7s ease-in-out infinite;
   --animate-fade-up: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
-  --animate-drift: drift 22s linear infinite;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-14px); }
 }
 
 @keyframes fade-up {
@@ -33,25 +20,19 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes drift {
-  from { transform: translate(0, 0) rotate(0deg); }
-  to { transform: translate(0, 0) rotate(360deg); }
-}
-
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  @apply bg-white text-ink-900 dark:bg-ink-950 dark:text-zinc-100;
+  @apply bg-stone-50 text-stone-900 dark:bg-stone-950 dark:text-stone-100;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 ::selection {
-  @apply bg-cyan-glow/30 text-inherit;
+  @apply bg-rust-500/20 text-inherit;
 }
 
 ::-webkit-scrollbar {
@@ -61,23 +42,13 @@ body {
   @apply bg-transparent;
 }
 ::-webkit-scrollbar-thumb {
-  @apply bg-zinc-300 dark:bg-ink-700 rounded-full;
+  @apply bg-stone-300 dark:bg-stone-700 rounded-full;
 }
 
-.text-gradient {
-  background: linear-gradient(90deg, var(--color-cyan-glow), var(--color-violet-glow));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+.font-serif {
+  font-optical-sizing: auto;
 }
 
-.grid-bg {
-  background-image:
-    linear-gradient(to right, rgba(148, 163, 184, 0.08) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
-  background-size: 44px 44px;
-}
-
-.noise-mask {
-  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
+.rule {
+  @apply border-stone-200 dark:border-stone-800;
 }
