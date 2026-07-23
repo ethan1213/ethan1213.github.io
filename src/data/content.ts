@@ -84,6 +84,14 @@ export const certifications = [
 ];
 export const certificationsTotal = 19;
 
+export const nextProject = {
+  name: "Vision AI Platform",
+  tagline: "Sistema de visión artificial en tiempo real.",
+  description:
+    "Detección de objetos, OCR, seguimiento y conteo en tiempo real, con alertas y dashboard.",
+  stack: ["YOLO", "OpenCV", "OCR", "DeepSORT"],
+};
+
 export const community = {
   org: "Cámara Chilena de Inteligencia Artificial (CCHIA)",
   role: "Socio y charlista en distintos proyectos de IA",

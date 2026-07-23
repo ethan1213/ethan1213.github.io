@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { caseStudies } from "../data/caseStudies";
+import { nextProject } from "../data/content";
 import { Reveal, SectionHeading } from "./Reveal";
 import { GithubIcon } from "./icons";
 
@@ -35,26 +36,16 @@ export function Projects() {
         </div>
 
         <Reveal delay={0.15} className="mt-6">
-          <div className="border rule border-dashed p-6">
-            <p className="text-sm font-medium mb-3">Próximamente</p>
-            <ul className="space-y-2 text-sm text-stone-600 dark:text-stone-400">
-              <li>
-                <span className="font-mono text-rust-600 dark:text-rust-400">BIA con IA</span> — Business Impact
-                Analysis automatizado para continuidad de negocio (ISO 22301), en la línea de CiberSegurIA.
-              </li>
-              <li>
-                <span className="font-mono text-rust-600 dark:text-rust-400">Agentes con Google ADK</span> —
-                explorando agentes de IA multi-paso.
-              </li>
-              <li>
-                <span className="font-mono text-rust-600 dark:text-rust-400">Power Platform</span> — explorando
-                Power Automate y Copilot Studio para automatización empresarial.
-              </li>
-              <li>
-                <span className="font-mono text-rust-600 dark:text-rust-400">Kiro</span> — explorando desarrollo
-                asistido por IA para nuevos proyectos.
-              </li>
-            </ul>
+          <div className="border rule border-dashed p-7">
+            <p className="text-xs font-mono uppercase tracking-widest text-stone-500 mb-3">Próximo proyecto</p>
+            <h3 className="font-serif text-2xl">{nextProject.name}</h3>
+            <p className="text-sm text-stone-500 mt-1">{nextProject.tagline}</p>
+            <p className="text-sm text-stone-600 dark:text-stone-400 mt-3 leading-relaxed">{nextProject.description}</p>
+            <div className="flex flex-wrap gap-x-3 gap-y-1 mt-5 text-xs font-mono text-stone-500">
+              {nextProject.stack.map((s) => (
+                <span key={s}>{s}</span>
+              ))}
+            </div>
           </div>
         </Reveal>
 
