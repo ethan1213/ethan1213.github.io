@@ -97,6 +97,14 @@ export const community = {
   ],
 };
 
+export const talks = [
+  {
+    event: "PyCon Chile 2025 — Viña del Mar",
+    title: "DetectVoice: detección de deepfakes de audio",
+    href: "https://www.youtube.com/live/qCe_SSpnSno?si=rnuSogVOt9ngdYL9&t=21632",
+  },
+];
+
 export const skills = {
   "Lenguajes": ["Python", "Java", "SQL", "JavaScript", "C++"],
   "IA / ML": ["TensorFlow", "PyTorch", "scikit-learn", "Transformers", "OpenCV", "YOLO", "LLMs", "RAG", "Agentes de IA"],
