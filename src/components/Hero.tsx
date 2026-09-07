@@ -32,7 +32,7 @@ export function Hero() {
 
             <h1 className="font-serif text-4xl sm:text-5xl md:text-[3.4rem] leading-[1.08] tracking-tight">
               {profile.name}
-              <span className="block italic text-stone-500 dark:text-stone-400 mt-1">{profile.role} aplicado.</span>
+              <span className="block italic text-stone-500 dark:text-stone-400 mt-1">{profile.role} · IA aplicada.</span>
             </h1>
 
             <p className="mt-6 max-w-xl text-lg text-stone-700 dark:text-stone-300">{profile.pitch}</p>

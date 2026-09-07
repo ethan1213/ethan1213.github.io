@@ -5,7 +5,7 @@ export function About() {
   return (
     <section id="about" className="py-20 md:py-28 border-t rule">
       <div className="max-w-5xl mx-auto px-6">
-        <SectionHeading eyebrow="01 — Sobre mí" title="Ingeniería de IA con foco práctico" />
+        <SectionHeading eyebrow="02 — Sobre mí" title="Ingeniería de IA con foco práctico" />
 
         <div className="grid md:grid-cols-[1.1fr_0.9fr] gap-14">
           <Reveal delay={0.05} className="space-y-5">

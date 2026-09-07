@@ -65,7 +65,8 @@ export function Navbar() {
           {isHome && (
             <button
               onClick={() => setOpen((o) => !o)}
-              aria-label="Abrir menú"
+              aria-label={open ? "Cerrar menú" : "Abrir menú"}
+              aria-expanded={open}
               className="md:hidden size-9 grid place-items-center rounded-full border rule text-stone-600 dark:text-stone-300"
             >
               {open ? <X size={16} /> : <Menu size={16} />}

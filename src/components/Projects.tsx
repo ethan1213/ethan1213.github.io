@@ -9,7 +9,7 @@ export function Projects() {
   return (
     <section id="projects" className="py-20 md:py-28 border-t rule">
       <div className="max-w-5xl mx-auto px-6">
-        <SectionHeading eyebrow="03 — Proyectos" title="Casos de estudio" />
+        <SectionHeading eyebrow="01 — Proyectos" title="Casos de estudio" />
 
         <div className="grid md:grid-cols-2 gap-6">
           {caseStudies.map((c, i) => (

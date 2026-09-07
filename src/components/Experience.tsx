@@ -6,7 +6,7 @@ export function Experience() {
   return (
     <section id="experience" className="py-20 md:py-28 border-t rule">
       <div className="max-w-5xl mx-auto px-6">
-        <SectionHeading eyebrow="02 — Trayectoria" title="Experiencia, educación y certificaciones" />
+        <SectionHeading eyebrow="03 — Trayectoria" title="Experiencia, educación y certificaciones" />
 
         <div className="grid lg:grid-cols-3 gap-10">
           <Reveal className="lg:col-span-1">
