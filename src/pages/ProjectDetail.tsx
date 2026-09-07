@@ -4,6 +4,8 @@ import { getCaseStudy } from "../data/caseStudies";
 import { Reveal } from "../components/Reveal";
 import { GithubIcon } from "../components/icons";
 import { evidence } from "../data/evidence";
+import { GovernanceComparison } from "../components/GovernanceComparison";
+import { profile } from "../data/content";
 
 export function ProjectDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -30,12 +32,12 @@ export function ProjectDetail() {
 
           <div className="flex flex-wrap items-center gap-4 mt-6">
             <a
-              href={study.repo}
+              href={study.repo ?? `mailto:${profile.email}?subject=${encodeURIComponent(`Consulta técnica: ${study.name}`)}`}
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 border-b border-stone-900 dark:border-white pb-0.5 text-sm font-medium hover:text-rust-600 dark:hover:text-rust-400 hover:border-rust-600 dark:hover:border-rust-400 transition-colors"
             >
-              <GithubIcon size={16} /> Ver repositorio <ArrowUpRight size={14} />
+              <GithubIcon size={16} /> {study.repo ? "Ver repositorio" : "Conversar sobre el caso"} <ArrowUpRight size={14} />
             </a>
             <div className="flex flex-wrap gap-x-3 text-xs font-mono text-stone-500">
               {study.stack.map((s) => (
@@ -46,11 +48,12 @@ export function ProjectDetail() {
         </Reveal>
 
         {evidence[study.slug] && <section aria-labelledby="evidence-title" className="mt-10 border rule rounded-2xl p-6">
-          <p className="font-mono text-xs uppercase tracking-widest text-rust-600 dark:text-rust-400">Código público · referencia de septiembre de 2026</p>
+          <p className="font-mono text-xs uppercase tracking-widest text-rust-600 dark:text-rust-400">{study.repo ? "Código público" : "Caso técnico · código privado"} · referencia de septiembre de 2026</p>
           <h2 id="evidence-title" className="font-serif text-2xl mt-3">Evidencia técnica para revisar</h2>
           <p className="mt-3 text-sm text-stone-600 dark:text-stone-400">{evidence[study.slug].scope}</p>
           <ul className="mt-5 space-y-4">{evidence[study.slug].links.map((link) => <li key={link.href}><a href={link.href} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm font-medium text-rust-600 dark:text-rust-400">{link.label}<ArrowUpRight size={14} /></a><p className="mt-1 text-sm text-stone-600 dark:text-stone-400">{link.description}</p></li>)}</ul>
         </section>}
+        {study.slug === "ai-governance-testkit" && <GovernanceComparison />}
 
         <Reveal delay={0.05} className="mt-14 space-y-5">
           {study.overview.map((p, i) => (

@@ -5,7 +5,10 @@ export function ScrollToTop() {
   const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    if (hash) return;
+    if (hash) {
+      document.getElementById(hash.slice(1))?.scrollIntoView({ behavior: "instant", block: "start" });
+      return;
+    }
     window.scrollTo(0, 0);
   }, [pathname, hash]);
 

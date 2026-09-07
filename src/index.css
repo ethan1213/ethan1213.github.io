@@ -4,7 +4,7 @@
 
 @theme {
   --font-sans: "Inter", system-ui, sans-serif;
-  --font-serif: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --font-serif: "Space Grotesk", "Inter", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
   --color-rust-700: #9a3b1c;
@@ -58,3 +58,14 @@ body {
 .rule {
   @apply border-stone-200 dark:border-stone-800;
 }
+
+.hero-surface { background: radial-gradient(ellipse at 85% 12%, rgb(16 185 129 / .09), transparent 60%); }
+.governance-surface { background: linear-gradient(160deg, rgb(16 185 129 / .04), transparent 70%); }
+.eyebrow-label { @apply text-xs font-mono uppercase tracking-[.14em] text-rust-600 dark:text-rust-400; }
+.evidence-panel { @apply rounded-3xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900/50; box-shadow: 0 12px 48px rgb(0 0 0 / .025); }
+.action-primary { @apply inline-flex items-center justify-center gap-2 rounded-full bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-950 px-5 py-3 text-sm font-medium transition-colors hover:bg-stone-700 dark:hover:bg-stone-300; }
+.action-secondary { @apply inline-flex items-center justify-center gap-2 rounded-full border border-stone-300 dark:border-stone-700 px-5 py-3 text-sm font-medium hover:bg-stone-100 dark:hover:bg-stone-900 transition-colors; }
+.pipeline-link { @apply grid grid-cols-[auto_1fr_auto] gap-3 items-center rounded-2xl border border-stone-200 dark:border-stone-800 p-4 hover:border-emerald-600 transition-colors; }
+.project-card { @apply flex flex-col rounded-3xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900/40 p-7 md:p-8 transition-colors hover:border-emerald-600; }
+.project-filter { @apply rounded-full border border-stone-300 dark:border-stone-700 px-4 py-2 text-sm text-stone-600 dark:text-stone-300 transition-colors; }
+.project-filter[aria-pressed="true"] { @apply bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-950 border-transparent; }

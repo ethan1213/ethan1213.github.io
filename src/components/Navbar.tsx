@@ -4,9 +4,10 @@ import { Moon, Sun, Menu, X, ArrowLeft } from "lucide-react";
 import { useTheme } from "../hooks/useTheme";
 
 const links = [
+  { href: "#governance", label: "Gobernanza" },
+  { href: "#projects", label: "Proyectos" },
   { href: "#about", label: "Sobre mí" },
   { href: "#experience", label: "Experiencia" },
-  { href: "#projects", label: "Proyectos" },
   { href: "#community", label: "Comunidad" },
   { href: "#contact", label: "Contacto" },
 ];
@@ -36,7 +37,7 @@ export function Navbar() {
         </Link>
 
         {isHome ? (
-          <ul className="hidden md:flex items-center gap-8 text-sm text-stone-600 dark:text-stone-400">
+          <ul className="hidden lg:flex items-center gap-5 text-sm text-stone-600 dark:text-stone-400">
             {links.map((l) => (
               <li key={l.href}>
                 <a href={l.href} className="hover:text-stone-950 dark:hover:text-white transition-colors">
@@ -67,7 +68,7 @@ export function Navbar() {
               onClick={() => setOpen((o) => !o)}
               aria-label={open ? "Cerrar menú" : "Abrir menú"}
               aria-expanded={open}
-              className="md:hidden size-9 grid place-items-center rounded-full border rule text-stone-600 dark:text-stone-300"
+              className="lg:hidden size-9 grid place-items-center rounded-full border rule text-stone-600 dark:text-stone-300"
             >
               {open ? <X size={16} /> : <Menu size={16} />}
             </button>
@@ -76,7 +77,7 @@ export function Navbar() {
       </nav>
 
       {isHome && open && (
-        <ul className="md:hidden flex flex-col gap-1 px-6 pb-4 bg-stone-50 dark:bg-stone-950 border-b rule">
+        <ul className="lg:hidden flex flex-col gap-1 px-6 pb-4 bg-stone-50 dark:bg-stone-950 border-b rule">
           {links.map((l) => (
             <li key={l.href}>
               <a

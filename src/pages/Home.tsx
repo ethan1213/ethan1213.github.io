@@ -5,13 +5,15 @@ import { Projects } from "../components/Projects";
 import { Community } from "../components/Community";
 import { Contact } from "../components/Contact";
 import { RecruiterOverview } from "../components/RecruiterOverview";
+import { GovernanceFeature } from "../components/GovernanceFeature";
 
 export function Home() {
   return (
     <>
       <Hero />
-      <RecruiterOverview />
+      <GovernanceFeature />
       <Projects />
+      <RecruiterOverview />
       <About />
       <Experience />
       <Community />

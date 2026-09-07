@@ -1,4 +1,19 @@
 export const evidence: Record<string, { focus: string; scope: string; links: { label: string; href: string; description: string }[] }> = {
+  "ai-governance-testkit": {
+    focus: "Evaluación, controles y evidencia reproducible",
+    scope: "Ejecución local de tres perfiles sobre la misma suite. Resumen agregado disponible; código y corpus privados. Sistema de demostración determinista, sin LLM comercial.",
+    links: [{ label: "Resumen de la ejecución (JSON)", href: "/evidence/governance-comparison.json", description: "Fecha, versión, método, resultados y límites de las 176 pruebas por perfil." }],
+  },
+  "ai-privacy-gateway": {
+    focus: "Privacidad de documentos y control del flujo de datos",
+    scope: "Caso basado en la arquitectura, documentación de QA y CI del proyecto. El repositorio permanece privado. El resumen distingue controles implementados de validación pendiente.",
+    links: [{ label: "Ficha de arquitectura y verificación", href: "/evidence/privacy-gateway.md", description: "Flujo local, método de revisión, verificación consultada y limitaciones." }],
+  },
+  andamio: {
+    focus: "Continuidad offline y consistencia de datos",
+    scope: "Documentación y pruebas presentes en el repositorio público. Se verificó su existencia; no se ejecutaron pruebas de carga ni una red multiusuario en esta revisión.",
+    links: [{ label: "Pruebas de conflictos", href: "https://github.com/ethan1213/andamio/blob/384fb28107e332a753d0ae359bacb68a062185c1/tests/test_sync_conflict.py", description: "Bloqueo optimista y registro de cambios que no pudieron guardarse." }, { label: "Pruebas de aislamiento", href: "https://github.com/ethan1213/andamio/blob/384fb28107e332a753d0ae359bacb68a062185c1/tests/test_aislamiento.py", description: "Separación entre bases temporales de pruebas y datos de operación." }],
+  },
   detectvoice: {
     focus: "Machine learning de audio y evaluación de robustez",
     scope: "Código público de entrenamiento y evaluación. Los enlaces permiten inspeccionar la implementación; no equivalen a una validación independiente de rendimiento ni a un despliegue en producción.",

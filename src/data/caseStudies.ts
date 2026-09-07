@@ -5,7 +5,9 @@ export type CaseStudy = {
   summary: string;
   year: string;
   stack: string[];
-  repo: string;
+  repo?: string;
+  category?: string;
+  status?: string;
   overview: string[];
   architecture: { title: string; items: string[] }[];
   howItWorks: string[];
@@ -15,7 +17,34 @@ export type CaseStudy = {
 
 export const caseStudies: CaseStudy[] = [
   {
+    slug: "ai-governance-testkit", name: "AI Governance Testkit", tagline: "Controles de IA que se pueden poner a prueba.",
+    summary: "Laboratorio reproducible para comparar defensas frente a prompt injection, respuestas sin respaldo y errores de cálculo, con evidencia de cada ejecución.",
+    year: "2026", category: "Gobernanza", status: "Laboratorio v0.1", stack: ["Python", "pytest", "Evaluación", "Trazabilidad"],
+    overview: ["Una política de uso de IA necesita una forma de comprobarse. Este kit convierte controles en casos de prueba y compara el comportamiento de un sistema de demostración con tres niveles de defensa.", "El sistema bajo prueba es determinista y trabaja con datos sintéticos. La comparación permite atribuir cambios a los controles; no mide el comportamiento de un LLM comercial ni certifica seguridad en producción."],
+    architecture: [
+      { title: "Contrato de evaluación", items: ["Adaptador para el sistema bajo prueba", "Corpus de casos y variaciones", "Controles y umbrales declarados"] },
+      { title: "Evidencia", items: ["Resultados por perfil", "Referencias y abstención", "Manifiesto para comprobar integridad"] },
+    ],
+    howItWorks: ["Definir el control y un caso que pueda hacerlo fallar.", "Ejecutar el mismo corpus contra los perfiles ingenuo, egreso y endurecido.", "Comparar fallos: una prueba útil debe distinguir comportamientos, no aprobar siempre.", "Conservar resultados, versión y alcance de la ejecución para revisarlos después."],
+    structure: "datasets/     casos sintéticos\ntests/        suites y mutaciones\nsrc/          adaptadores y sistema de demostración\ngovernance/   controles y umbrales\nevidence/     resultados y manifiestos",
+    considerations: ["Comparación local del 7 de septiembre de 2026: 67 fallos en ingenuo, 42 en egreso y 0 en endurecido, sobre 176 pruebas por perfil.", "Los fallos de los perfiles de contraste son intencionales. Cero fallos significa que pasó este corpus, no que el sistema sea invulnerable.", "El código fuente es privado. Se publica un resumen agregado de la ejecución; no se publican el corpus ni archivos internos."],
+  },
+  {
+    slug: "ai-privacy-gateway", name: "AI Privacy Gateway", tagline: "Proteger el documento antes de consultarlo.",
+    summary: "Flujo local para detectar y revisar datos personales, seudonimizar documentos y consultar únicamente el texto protegido, con trazabilidad de la transformación.",
+    year: "2026", category: "Gobernanza", status: "Prototipo v0.1", stack: ["Python", "FastAPI", "React", "Tauri"],
+    overview: ["La privacidad empieza antes de enviar una pregunta. Privacy Gateway organiza la ingesta, detección, revisión humana, seudonimización y exportación de documentos en un flujo local.", "La versión v0.1 utiliza un motor de consulta extractivo y determinista sobre texto seudonimizado. No usa un LLM ni RAG en la nube. Su función es construir una base controlada para trabajar con documentos sensibles."],
+    architecture: [
+      { title: "Capas y contratos", items: ["Dominio y casos de uso separados de adaptadores", "API local y CLI sobre el mismo motor", "Interfaz React y shell Tauri"] },
+      { title: "Privacidad y trazabilidad", items: ["Revisión humana antes de transformar", "Reportes sin valores personales originales", "Hashes de entrada y salida", "Pruebas de ausencia de conexiones salientes"] },
+    ],
+    howItWorks: ["Importar un documento PDF o DOCX en un expediente local.", "Detectar posibles datos personales y permitir que una persona confirme, rechace o agregue hallazgos.", "Seudonimizar antes de habilitar preguntas sobre el documento.", "Responder con fragmentos del texto protegido o declarar falta de evidencia.", "Exportar el documento y un reporte de transformación que permita comprobar su integridad."],
+    structure: "domain/          modelos y contratos\napplication/     casos de uso\ninfrastructure/  parsers, detección, almacenamiento y exportación\ninterfaces/      CLI y API local\nfrontend/        revisión y navegación del expediente",
+    considerations: ["Se revisaron la documentación de QA y la ejecución de CI del commit 2ec5232, finalizada correctamente. No se repitió aquí toda la suite del backend.", "La detección de nombres es heurística y requiere revisión humana. Falta evaluar precisión y exhaustividad sobre un corpus real autorizado.", "El instalador de distribución y pruebas de carga siguen pendientes. La versión actual no certifica cumplimiento legal.", "Repositorio privado: el caso describe arquitectura y límites sin publicar documentos ni código interno."],
+  },
+  {
     slug: "detectvoice",
+    category: "Machine learning", status: "Investigación",
     name: "DetectVoice",
     tagline: "Detección de deepfakes de audio, con evaluación de robustez adversarial.",
     summary:
@@ -85,6 +114,7 @@ tests/            pruebas unitarias`,
   },
   {
     slug: "ciberseguria",
+    category: "Software", status: "MVP",
     name: "CiberSegurIA",
     tagline: "SaaS de autodiagnóstico de ciberseguridad para empresas chilenas.",
     summary:
@@ -143,6 +173,16 @@ static/             CSS y assets`,
       "Pensado explícitamente como generador de leads, no solo como herramienta técnica.",
       "Roadmap: dashboard administrativo, benchmarking comparativo, exportación a Excel, integración con CRM, notificaciones por email, planes por suscripción.",
     ],
+  },
+  {
+    slug: "andamio", name: "Andamio", tagline: "Continuidad de trabajo cuando la conexión cambia.",
+    summary: "Gestor de proyectos de escritorio con operación local y compartida, registro de conflictos y reglas de progreso derivadas de las tareas.",
+    year: "2026", category: "Software", status: "Código público", repo: "https://github.com/ethan1213/andamio", stack: ["Electron", "Python", "Flask", "SQLite"],
+    overview: ["Andamio aborda la coordinación de proyectos en entornos donde una conexión permanente no está garantizada. La aplicación hace explícito si trabaja en modo local o compartido.", "El caso permite revisar decisiones de consistencia y trazabilidad: los conflictos de escritura se registran, y el progreso se calcula a partir de las tareas en vez de editarse arbitrariamente."],
+    architecture: [{ title: "Aplicación", items: ["Interfaz de escritorio Electron", "Backend Flask", "Capa de datos SQLite"] }, { title: "Reglas de operación", items: ["Bloqueo optimista", "Registro de conflictos", "Progreso derivado", "Pruebas con bases temporales aisladas"] }],
+    howItWorks: ["Identificar el modo disponible al iniciar.", "Organizar tareas y estimaciones de un proyecto.", "Registrar las operaciones locales y reconciliar cambios al recuperar la conexión.", "Rechazar escrituras en conflicto y conservar una bitácora del intento."],
+    structure: "backend/   API y acceso a datos\ntests/     conflictos, reglas e aislamiento\nscripts/   utilidades de desarrollo y operación",
+    considerations: ["Se verificaron el README y las rutas de pruebas del repositorio público. No se ejecutó una validación de carga o concurrencia en una red real.", "La compatibilidad del almacenamiento compartido debe evaluarse en la infraestructura de destino antes de recomendar un despliegue.", "Se presenta como evidencia de ingeniería de software, sin atribuirle capacidades de IA que no necesita."],
   },
 ];
 

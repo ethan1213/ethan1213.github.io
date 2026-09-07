@@ -1,85 +1,30 @@
-import { motion } from "framer-motion";
-import { ArrowDown, Download, Mail, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
+import { ArrowDown, ArrowUpRight, Download, MapPin, ShieldCheck, Fingerprint, FlaskConical } from "lucide-react";
 import { profile } from "../data/content";
 import { GithubIcon, LinkedinIcon } from "./icons";
 
 export function Hero() {
-  return (
-    <section id="top" className="pt-40 pb-24 md:pt-52 md:pb-32">
-      <div className="max-w-5xl mx-auto px-6">
-        <div className="grid md:grid-cols-[auto_1fr] gap-10 md:gap-14 items-start">
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="order-2 md:order-1"
-          >
-            <div className="size-24 md:size-32 rounded-full overflow-hidden border border-stone-300 dark:border-stone-700">
-              <img src={profile.avatar} alt={profile.fullName} className="size-full object-cover" />
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.08 }}
-            className="order-1 md:order-2"
-          >
-            <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-stone-500 dark:text-stone-500 mb-5">
-              <span className="size-1.5 rounded-full bg-rust-500" />
-              {profile.availability}
-            </div>
-
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-[3.4rem] leading-[1.08] tracking-tight">
-              {profile.name}
-              <span className="block italic text-stone-500 dark:text-stone-400 mt-1">{profile.role} · IA aplicada.</span>
-            </h1>
-
-            <p className="mt-6 max-w-xl text-lg text-stone-700 dark:text-stone-300">{profile.pitch}</p>
-
-            <p className="mt-3 font-mono text-sm text-stone-500 dark:text-stone-500">{profile.tagline}</p>
-
-            <div className="mt-3 flex items-center gap-1.5 text-sm text-stone-500 dark:text-stone-500">
-              <MapPin size={14} />
-              {profile.location}
-            </div>
-
-            <div className="mt-9 flex flex-wrap items-center gap-5">
-              <a
-                href="#projects"
-                className="inline-flex items-center gap-2 border-b border-stone-900 dark:border-white pb-0.5 text-sm font-medium hover:gap-3 hover:text-rust-600 dark:hover:text-rust-400 hover:border-rust-600 dark:hover:border-rust-400 transition-all"
-              >
-                Ver proyectos <ArrowDown size={14} />
-              </a>
-              <a
-                href="#contact"
-                className="text-sm font-medium text-stone-500 dark:text-stone-400 hover:text-stone-950 dark:hover:text-white transition-colors"
-              >
-                Contactar
-              </a>
-              <a
-                href={profile.cv}
-                download
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-stone-500 dark:text-stone-400 hover:text-stone-950 dark:hover:text-white transition-colors"
-              >
-                <Download size={14} /> Descargar CV
-              </a>
-
-              <div className="flex items-center gap-3 ml-1 text-stone-500 dark:text-stone-500">
-                <a href={profile.github} target="_blank" rel="noreferrer" aria-label="GitHub" className="hover:text-stone-950 dark:hover:text-white transition-colors">
-                  <GithubIcon size={18} />
-                </a>
-                <a href={profile.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="hover:text-stone-950 dark:hover:text-white transition-colors">
-                  <LinkedinIcon size={18} />
-                </a>
-                <a href={`mailto:${profile.email}`} aria-label="Email" className="hover:text-stone-950 dark:hover:text-white transition-colors">
-                  <Mail size={18} />
-                </a>
-              </div>
-            </div>
-          </motion.div>
-        </div>
+  return <section id="top" className="hero-surface pt-32 pb-20 md:pt-44 md:pb-28">
+    <div className="max-w-5xl mx-auto px-6 grid lg:grid-cols-[1.15fr_.85fr] gap-12 items-center">
+      <div>
+        <div className="flex items-center gap-4 mb-8"><img src={profile.avatar} alt={profile.fullName} width={56} height={56} className="size-14 rounded-2xl object-cover border rule" /><div><p className="text-sm font-medium">{profile.name}</p><p className="flex items-center gap-2 mt-1 text-xs text-stone-500 dark:text-stone-400"><span className="size-1.5 rounded-full bg-emerald-500" />{profile.availability}</p></div></div>
+        <p className="eyebrow-label">AI Engineer · Gobernanza de IA y datos</p>
+        <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl leading-[1.06] tracking-tight mt-5">Construir IA.<br /><span className="text-rust-600 dark:text-rust-400">Ponerla a prueba.</span><br />Explicar sus límites.</h1>
+        <p className="mt-6 max-w-xl text-lg text-stone-700 dark:text-stone-300">{profile.pitch}</p>
+        <p className="mt-4 text-sm leading-6 text-stone-500 dark:text-stone-400">{profile.tagline}</p>
+        <div className="mt-8 flex flex-wrap gap-3"><a href="#governance" className="action-primary">Explorar gobernanza <ArrowDown size={16} /></a><a href={profile.cv} download className="action-secondary"><Download size={16} />Descargar CV</a></div>
+        <div className="mt-7 flex flex-wrap items-center gap-5 text-sm text-stone-500 dark:text-stone-400"><span className="inline-flex items-center gap-1.5"><MapPin size={14} />{profile.location}</span><a href={profile.github} target="_blank" rel="noreferrer" aria-label="GitHub de Ethan Astorga"><GithubIcon size={18} /></a><a href={profile.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn de Ethan Astorga"><LinkedinIcon size={18} /></a><a href="#contact" className="underline underline-offset-4">Contactar</a></div>
       </div>
-    </section>
-  );
+      <aside className="evidence-panel p-6 md:p-8 relative" aria-label="Línea de trabajo en gobernanza">
+        <div className="flex items-center justify-between gap-3"><p className="eyebrow-label">Línea de trabajo / 01</p><ShieldCheck className="text-emerald-600 dark:text-emerald-400" size={24} /></div>
+        <h2 className="font-serif text-3xl mt-8">Gobernanza que se puede examinar.</h2>
+        <p className="text-sm leading-6 text-stone-600 dark:text-stone-400 mt-4">Dos proyectos conectan protección del dato, controles del sistema y evidencia de su comportamiento.</p>
+        <div className="mt-7 space-y-3">
+          <Link to="/proyectos/ai-privacy-gateway" className="pipeline-link"><Fingerprint size={22} /><div><p className="font-medium text-sm">01 · Proteger el documento</p><p className="text-xs text-stone-500 dark:text-stone-400 mt-1">Privacy Gateway · procesamiento local</p></div><ArrowUpRight size={16} /></Link>
+          <Link to="/proyectos/ai-governance-testkit" className="pipeline-link"><FlaskConical size={22} /><div><p className="font-medium text-sm">02 · Evaluar los controles</p><p className="text-xs text-stone-500 dark:text-stone-400 mt-1">Testkit · comparación de defensas</p></div><ArrowUpRight size={16} /></Link>
+        </div>
+        <div className="mt-7 pt-5 border-t rule flex flex-wrap gap-2">{["Revisión humana", "Datos sintéticos", "Evidencia trazable"].map(item=><span key={item} className="rounded-full border rule px-3 py-1 text-[11px] font-mono text-stone-600 dark:text-stone-400">{item}</span>)}</div>
+      </aside>
+    </div>
+  </section>;
 }

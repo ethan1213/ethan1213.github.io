@@ -1,0 +1,28 @@
+{
+  "date": "2026-09-07",
+  "version": "v0.1",
+  "sourceCommit": "7962bd91fd8a885693b72480db75f54ac43e01a1",
+  "method": "python scripts/run_evidence.py --comparar --sin-cobertura",
+  "system": "Sistema de demostración determinista; datos sintéticos; sin LLM comercial",
+  "profiles": [
+    {
+      "name": "Ingenuo",
+      "failed": 67,
+      "passed": 109,
+      "total": 176
+    },
+    {
+      "name": "Egreso",
+      "failed": 42,
+      "passed": 134,
+      "total": 176
+    },
+    {
+      "name": "Endurecido",
+      "failed": 0,
+      "passed": 176,
+      "total": 176
+    }
+  ],
+  "limits": "Resultados del corpus de esta versión. No estiman seguridad en producción. El código y corpus son privados; este archivo contiene solo resultados agregados."
+}
