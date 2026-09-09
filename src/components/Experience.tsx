@@ -18,7 +18,7 @@ export function Experience() {
               {experience.map((e) => (
                 <li key={e.company} className="relative">
                   <span className="absolute -left-[27px] top-1 size-2 rounded-full bg-rust-600 dark:bg-rust-400" />
-                  <p className="text-xs font-mono text-stone-500">{e.period} · {e.duration}</p>
+                  <p className="text-xs font-mono text-stone-500">{e.period}{e.duration ? ` · ${e.duration}` : ""}</p>
                   <p className="font-medium mt-1">{e.role}</p>
                   <p className="text-sm text-stone-600 dark:text-stone-400">{e.company} · {e.type}</p>
                   <p className="text-sm text-stone-500 mt-1">{e.location}</p>

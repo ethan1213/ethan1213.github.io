@@ -1,12 +1,12 @@
 export const profile = {
   name: "Ethan Astorga",
-  fullName: "Ethan Astorga Contreras",
-  role: "AI Engineer",
+  fullName: "Ethan Alexis Astorga Contreras",
+  role: "AI Engineer / Applied AI Engineer",
   tagline: "Agentes & RAG · Python / APIs & Microservicios · LLMs on-premise",
   location: "Santiago, Chile",
   availability: "Disponible para nuevas oportunidades",
   pitch:
-    "Construyo sistemas de IA listos para producción: agentes, RAG y automatización aplicada a problemas reales.",
+    "Desarrollo agentes, RAG y automatización con Python; documento su evaluación, privacidad y límites con proyectos verificables.",
   about: [
     "Llegué a la IA por una obsesión simple: que las cosas funcionen solas. Esa idea me llevó de la automatización a construir soluciones que hoy corren en producción — agentes de IA que consultan datos reales, sistemas RAG con embeddings y bases vectoriales, y LLMs on-premise integrados vía APIs REST en Python. Nada salió a la primera; casi todo salió después de romperlo varias veces, y ese ciclo de prototipo a producción es justo lo que más disfruto.",
     "Estudio Ingeniería en Informática en DuocUC (antes cursé 3 años de Ingeniería Civil en Computación en la Universidad Católica del Norte). Cuento con 19 certificaciones, entre ellas Profesional y Experto en IA (CertiProf), AWS Cloud Practitioner y Google Cloud Professional en IA & Data.",
@@ -21,11 +21,22 @@ export const profile = {
 
 export const experience = [
   {
+    company: "TherionLabs",
+    role: "Fundador",
+    type: "Emprendimiento",
+    period: "2026 — presente",
+    duration: "",
+    location: "Chile",
+    description: "Iniciativa de gobernanza y privacidad de IA. Proyecto seleccionado en Desafíos Capstone Empresas 2026-2 de DuocUC.",
+    highlights: ["Alcance del proyecto: autodiagnóstico en cuatro dimensiones, rutas formativas y detección de datos personales con NER en español. Las fichas del portafolio distinguen las funciones implementadas de las propuestas."],
+    skills: ["Gobernanza de IA", "Privacidad", "Diseño de productos"],
+  },
+  {
     company: "Samsung Electronics Chile",
     role: "Analista Jr. de Protección de Datos y Automatización",
     type: "Jornada completa",
-    period: "Ene 2026 — Jul 2026",
-    duration: "7 meses",
+    period: "2025 — 2026",
+    duration: "",
     location: "Chile · Presencial",
     description:
       "Agentes de IA, RAG on-premise, pipelines de datos y automatización en producción.",
@@ -33,14 +44,14 @@ export const experience = [
       "Agentes de IA y RAG en producción vía un servidor MCP (FastMCP, 7 herramientas, autenticación Bearer) y RAG con embeddings y bases vectoriales (pgvector + ChromaDB) sobre LLMs on-premise (llama.cpp, Qwen 2.5 / Llama 3.1 cuantizados).",
       "BIA Platform (~1.000 usuarios) en Django/Python con APIs REST, integrando modelos de IA externos y locales vía la librería de OpenAI.",
       "Pipeline ETL incremental: ~128.000 registros diarios desde 11 fuentes, orquestado con Prefect 3.",
-      "Analítica avanzada: forecasting de demanda (LSTM), detección de anomalías (autoencoder) y modelado de elasticidad de precios.",
+      "Analítica avanzada y modelado de elasticidad de precios; exploración de forecasting con LSTM y anomalías con autoencoder como líneas experimentales pendientes de validación.",
       "Protección de datos (Ley 21.719): Privacy by Design, ROPA/DPIA y prácticas de desarrollo seguro (SSDLC).",
     ],
     skills: ["Agentes de IA", "RAG", "MCP", "LLMs on-premise", "ETL", "Ley 21.719"],
   },
   {
     company: "Dual Vision",
-    role: "Asistente de Operaciones en Video Analítica",
+    role: "Analista de Soporte en Video Analítica",
     type: "Contrato temporal",
     period: "Jun 2025 — Nov 2025",
     duration: "6 meses",
@@ -55,7 +66,7 @@ export const education = [
   {
     institution: "DuocUC",
     degree: "Ingeniería en Informática, Computer Science",
-    period: "Mar 2025 — Nov 2029",
+    period: "2024 — presente · En curso",
     detail: "Promedio 6.5 / 7.0",
     skills: ["Google Cloud", "Trabajo colaborativo"],
   },
@@ -114,9 +125,9 @@ export const nextProject = {
 
 export const community = {
   org: "Cámara Chilena de Inteligencia Artificial (CCHIA)",
-  role: "Socio y Colaborador Técnico (Comisión I+D)",
+  role: "Líder AI Security Champion (SIA-GIA) · Socio y colaborador técnico",
   description:
-    "Participo como socio y colaborador técnico en la Comisión I+D de CCHIA, con acceso a repositorios, documentación y papers de la comunidad. Contribuyo a alejandrIA, una plataforma de IA on-premise con modelos cuantizados personalizados y RAG, que integra modelos locales y APIs externas vía la librería de OpenAI en Python. También participo como expositor — fui parte del webinar 'Marco Integral Ley 21.719: Ética, Regulación y Estrategias de Transformación Tecnológica', junto a Carlos Alberto Martínez.",
+    "Lidero la mesa Línea 3, AI Security Champion, en la Comisión SIA-GIA: formación de referentes internos no técnicos en seguridad y gobernanza de IA y un roadmap de 12 meses para la Red Champions. Participo también como socio y colaborador técnico en la Comisión I+D de CCHIA, con acceso a repositorios, documentación y papers de la comunidad. Contribuyo a alejandrIA, una plataforma de IA on-premise con modelos cuantizados personalizados y RAG, que integra modelos locales y APIs externas vía la librería de OpenAI en Python. También participo como expositor — fui parte del webinar 'Marco Integral Ley 21.719: Ética, Regulación y Estrategias de Transformación Tecnológica', junto a Carlos Alberto Martínez.",
   quote:
     "Me gusta asistir a charlas, generar innovación y seguir mejorando constantemente: primero entender la lógica, después ponerla en práctica.",
   links: [
