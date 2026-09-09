@@ -1,0 +1,236 @@
+{
+  "schema_version": 1,
+  "project": "ComplianceAI Chile — core de investigación",
+  "source_commit_before_changes": "7adfc100538a19e2ae4ebac4b8baba3d946876ac",
+  "status": "MVP de investigación local",
+  "data_kind": "synthetic",
+  "network": "blocked_during_core_execution",
+  "llm_used": false,
+  "database_used": false,
+  "questions": 14,
+  "domains": 7,
+  "scenarios": [
+    {
+      "name": "Sin evidencia",
+      "answer": "no",
+      "score": 0,
+      "domains": [
+        {
+          "id": "D1",
+          "nombre": "Gobierno de Datos",
+          "peso": 15,
+          "pct": 0
+        },
+        {
+          "id": "D2",
+          "nombre": "Consentimiento",
+          "peso": 10,
+          "pct": 0
+        },
+        {
+          "id": "D3",
+          "nombre": "Derechos Titulares",
+          "peso": 15,
+          "pct": 0
+        },
+        {
+          "id": "D4",
+          "nombre": "Proteccion Tecnica",
+          "peso": 20,
+          "pct": 0
+        },
+        {
+          "id": "D5",
+          "nombre": "Gestion de Brechas",
+          "peso": 10,
+          "pct": 0
+        },
+        {
+          "id": "D6",
+          "nombre": "Proveedores",
+          "peso": 10,
+          "pct": 0
+        },
+        {
+          "id": "D7",
+          "nombre": "Accountability",
+          "peso": 20,
+          "pct": 0
+        }
+      ]
+    },
+    {
+      "name": "Evidencia parcial",
+      "answer": "parcial",
+      "score": 50,
+      "domains": [
+        {
+          "id": "D1",
+          "nombre": "Gobierno de Datos",
+          "peso": 15,
+          "pct": 50
+        },
+        {
+          "id": "D2",
+          "nombre": "Consentimiento",
+          "peso": 10,
+          "pct": 50
+        },
+        {
+          "id": "D3",
+          "nombre": "Derechos Titulares",
+          "peso": 15,
+          "pct": 50
+        },
+        {
+          "id": "D4",
+          "nombre": "Proteccion Tecnica",
+          "peso": 20,
+          "pct": 50
+        },
+        {
+          "id": "D5",
+          "nombre": "Gestion de Brechas",
+          "peso": 10,
+          "pct": 50
+        },
+        {
+          "id": "D6",
+          "nombre": "Proveedores",
+          "peso": 10,
+          "pct": 50
+        },
+        {
+          "id": "D7",
+          "nombre": "Accountability",
+          "peso": 20,
+          "pct": 50
+        }
+      ]
+    },
+    {
+      "name": "Evidencia completa",
+      "answer": "si",
+      "score": 100,
+      "domains": [
+        {
+          "id": "D1",
+          "nombre": "Gobierno de Datos",
+          "peso": 15,
+          "pct": 100
+        },
+        {
+          "id": "D2",
+          "nombre": "Consentimiento",
+          "peso": 10,
+          "pct": 100
+        },
+        {
+          "id": "D3",
+          "nombre": "Derechos Titulares",
+          "peso": 15,
+          "pct": 100
+        },
+        {
+          "id": "D4",
+          "nombre": "Proteccion Tecnica",
+          "peso": 20,
+          "pct": 100
+        },
+        {
+          "id": "D5",
+          "nombre": "Gestion de Brechas",
+          "peso": 10,
+          "pct": 100
+        },
+        {
+          "id": "D6",
+          "nombre": "Proveedores",
+          "peso": 10,
+          "pct": 100
+        },
+        {
+          "id": "D7",
+          "nombre": "Accountability",
+          "peso": 20,
+          "pct": 100
+        }
+      ]
+    }
+  ],
+  "retrieval": [
+    {
+      "query": "copias de respaldo restauracion",
+      "role": "cliente",
+      "hits": [
+        {
+          "id": "DEMO-01",
+          "norma": "Documento sintético",
+          "control": "Respaldos",
+          "texto": "Realizar copias de respaldo de informacion y verificar restauracion.",
+          "score": 0.7584860324859619,
+          "metadata": {}
+        },
+        {
+          "id": "DEMO-02",
+          "norma": "Documento sintético",
+          "control": "Inventario",
+          "texto": "Mantener inventario de activos y asignar responsables de cada sistema.",
+          "score": 0.04813909903168678,
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "query": "inventario activos responsables",
+      "role": "cliente",
+      "hits": [
+        {
+          "id": "DEMO-02",
+          "norma": "Documento sintético",
+          "control": "Inventario",
+          "texto": "Mantener inventario de activos y asignar responsables de cada sistema.",
+          "score": 0.695459246635437,
+          "metadata": {}
+        },
+        {
+          "id": "DEMO-01",
+          "norma": "Documento sintético",
+          "control": "Respaldos",
+          "texto": "Realizar copias de respaldo de informacion y verificar restauracion.",
+          "score": 0.16244210302829742,
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "query": "auditoria interna reservada",
+      "role": "auditor",
+      "hits": [
+        {
+          "id": "DEMO-03",
+          "norma": "Documento sintético",
+          "control": "Auditoría interna",
+          "texto": "Informe de auditoria interna reservado para el equipo auditor.",
+          "score": 0.5969327688217163,
+          "metadata": {}
+        },
+        {
+          "id": "DEMO-02",
+          "norma": "Documento sintético",
+          "control": "Inventario",
+          "texto": "Mantener inventario de activos y asignar responsables de cada sistema.",
+          "score": 0.14437399804592133,
+          "metadata": {}
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Escenarios y documentos inventados para esta demostración; no son datos de clientes.",
+    "Recuperación léxica por hashing, sin LLM ni embeddings entrenados.",
+    "El score verifica la fórmula implementada y no demuestra cumplimiento legal.",
+    "No evalúa autenticación, persistencia, aislamiento entre clientes ni seguridad integral.",
+    "Las referencias legales y métricas económicas del producto completo requieren revisión independiente."
+  ]
+}

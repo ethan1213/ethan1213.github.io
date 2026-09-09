@@ -1,3 +1,4 @@
+import { researchStudies } from "./researchStudies.ts";
 export type CaseStudy = {
   slug: string;
   name: string;
@@ -19,7 +20,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "ai-governance-testkit", name: "AI Governance Testkit", tagline: "Controles de IA que se pueden poner a prueba.",
     summary: "Laboratorio reproducible para comparar defensas frente a prompt injection, respuestas sin respaldo y errores de cálculo, con evidencia de cada ejecución.",
-    year: "2026", category: "Gobernanza", status: "Laboratorio v0.1", stack: ["Python", "pytest", "Evaluación", "Trazabilidad"],
+    year: "2026", category: "Gobernanza", status: "MVP de investigación", stack: ["Python", "pytest", "Evaluación", "Trazabilidad"],
     overview: ["Una política de uso de IA necesita una forma de comprobarse. Este kit convierte controles en casos de prueba y compara el comportamiento de un sistema de demostración con tres niveles de defensa.", "El sistema bajo prueba es determinista y trabaja con datos sintéticos. La comparación permite atribuir cambios a los controles; no mide el comportamiento de un LLM comercial ni certifica seguridad en producción."],
     architecture: [
       { title: "Contrato de evaluación", items: ["Adaptador para el sistema bajo prueba", "Corpus de casos y variaciones", "Controles y umbrales declarados"] },
@@ -32,7 +33,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "ai-privacy-gateway", name: "AI Privacy Gateway", tagline: "Proteger el documento antes de consultarlo.",
     summary: "Flujo local para detectar y revisar datos personales, seudonimizar documentos y consultar únicamente el texto protegido, con trazabilidad de la transformación.",
-    year: "2026", category: "Gobernanza", status: "Prototipo v0.1", stack: ["Python", "FastAPI", "React", "Tauri"],
+    year: "2026", category: "Gobernanza", status: "MVP local v0.1", stack: ["Python", "FastAPI", "React", "Tauri"],
     overview: ["La privacidad empieza antes de enviar una pregunta. Privacy Gateway organiza la ingesta, detección, revisión humana, seudonimización y exportación de documentos en un flujo local.", "La versión v0.1 utiliza un motor de consulta extractivo y determinista sobre texto seudonimizado. No usa un LLM ni RAG en la nube. Su función es construir una base controlada para trabajar con documentos sensibles."],
     architecture: [
       { title: "Capas y contratos", items: ["Dominio y casos de uso separados de adaptadores", "API local y CLI sobre el mismo motor", "Interfaz React y shell Tauri"] },
@@ -40,11 +41,11 @@ export const caseStudies: CaseStudy[] = [
     ],
     howItWorks: ["Importar un documento PDF o DOCX en un expediente local.", "Detectar posibles datos personales y permitir que una persona confirme, rechace o agregue hallazgos.", "Seudonimizar antes de habilitar preguntas sobre el documento.", "Responder con fragmentos del texto protegido o declarar falta de evidencia.", "Exportar el documento y un reporte de transformación que permita comprobar su integridad."],
     structure: "domain/          modelos y contratos\napplication/     casos de uso\ninfrastructure/  parsers, detección, almacenamiento y exportación\ninterfaces/      CLI y API local\nfrontend/        revisión y navegación del expediente",
-    considerations: ["Se revisaron la documentación de QA y la ejecución de CI del commit 2ec5232, finalizada correctamente. No se repitió aquí toda la suite del backend.", "La detección de nombres es heurística y requiere revisión humana. Falta evaluar precisión y exhaustividad sobre un corpus real autorizado.", "El instalador de distribución y pruebas de carga siguen pendientes. La versión actual no certifica cumplimiento legal.", "Repositorio privado: el caso describe arquitectura y límites sin publicar documentos ni código interno."],
+    considerations: ["Verificación local del 7 de septiembre de 2026: 143 pruebas aprobadas, tres controles de frontera correctos y compilación de la interfaz.", "La detección de nombres es heurística y requiere revisión humana. Falta evaluar precisión y exhaustividad sobre un corpus real autorizado.", "El instalador de distribución y pruebas de carga siguen pendientes. La versión actual no certifica cumplimiento legal.", "Repositorio privado: el caso describe arquitectura y límites sin publicar documentos ni código interno."],
   },
   {
     slug: "detectvoice",
-    category: "Machine learning", status: "Investigación",
+    category: "Machine learning", status: "MVP de investigación",
     name: "DetectVoice",
     tagline: "Detección de deepfakes de audio, con evaluación de robustez adversarial.",
     summary:
@@ -114,11 +115,11 @@ tests/            pruebas unitarias`,
   },
   {
     slug: "ciberseguria",
-    category: "Software", status: "MVP",
+    category: "Software", status: "MVP local",
     name: "CiberSegurIA",
     tagline: "SaaS de autodiagnóstico de ciberseguridad para empresas chilenas.",
     summary:
-      "'Diagnóstico SGSI Express': un cuestionario que mide cumplimiento legal y genera un reporte PDF automático — pensado tanto como producto como código.",
+      "Diagnóstico SGSI orientativo con cuestionario completo, puntuación ponderada e informe PDF. Flujo local probado con datos sintéticos.",
     year: "2025",
     stack: ["Python", "FastAPI", "SQLAlchemy", "SQLite", "ReportLab", "JWT"],
     repo: "https://github.com/ethan1213/CiberSegurIA",
@@ -177,13 +178,14 @@ static/             CSS y assets`,
   {
     slug: "andamio", name: "Andamio", tagline: "Continuidad de trabajo cuando la conexión cambia.",
     summary: "Gestor de proyectos de escritorio con operación local y compartida, registro de conflictos y reglas de progreso derivadas de las tareas.",
-    year: "2026", category: "Software", status: "Código público", repo: "https://github.com/ethan1213/andamio", stack: ["Electron", "Python", "Flask", "SQLite"],
+    year: "2026", category: "Software", status: "MVP local", repo: "https://github.com/ethan1213/andamio", stack: ["Electron", "Python", "Flask", "SQLite"],
     overview: ["Andamio aborda la coordinación de proyectos en entornos donde una conexión permanente no está garantizada. La aplicación hace explícito si trabaja en modo local o compartido.", "El caso permite revisar decisiones de consistencia y trazabilidad: los conflictos de escritura se registran, y el progreso se calcula a partir de las tareas en vez de editarse arbitrariamente."],
     architecture: [{ title: "Aplicación", items: ["Interfaz de escritorio Electron", "Backend Flask", "Capa de datos SQLite"] }, { title: "Reglas de operación", items: ["Bloqueo optimista", "Registro de conflictos", "Progreso derivado", "Pruebas con bases temporales aisladas"] }],
     howItWorks: ["Identificar el modo disponible al iniciar.", "Organizar tareas y estimaciones de un proyecto.", "Registrar las operaciones locales y reconciliar cambios al recuperar la conexión.", "Rechazar escrituras en conflicto y conservar una bitácora del intento."],
     structure: "backend/   API y acceso a datos\ntests/     conflictos, reglas e aislamiento\nscripts/   utilidades de desarrollo y operación",
-    considerations: ["Se verificaron el README y las rutas de pruebas del repositorio público. No se ejecutó una validación de carga o concurrencia en una red real.", "La compatibilidad del almacenamiento compartido debe evaluarse en la infraestructura de destino antes de recomendar un despliegue.", "Se presenta como evidencia de ingeniería de software, sin atribuirle capacidades de IA que no necesita."],
+    considerations: ["61 pruebas aprobadas y demo local aislada ejecutada. Las pruebas de carga y concurrencia en una red real siguen pendientes.", "La compatibilidad del almacenamiento compartido debe evaluarse en la infraestructura de destino antes de recomendar un despliegue.", "Se presenta como evidencia de ingeniería de software, sin atribuirle capacidades de IA que no necesita."],
   },
+  ...researchStudies,
 ];
 
 export function getCaseStudy(slug: string) {

@@ -22,3 +22,8 @@ Esta revisión del portafolio no repitió la suite completa del backend. El repo
 - Las pruebas sobre datos sintéticos no certifican cumplimiento legal.
 
 Este documento no contiene expedientes, datos personales de terceros ni código privado.
+
+
+## Verificación local adicional · 7 de septiembre de 2026
+
+Se ejecutó `python scripts/verify_all.py`: tres controles de frontera correctos y 143 pruebas aprobadas (9/9 grupos). La interfaz pasó `npm ci` y `npm run build`. Esto comprueba el alcance de las pruebas; no valida precisión sobre corpus real, instalador ni carga.

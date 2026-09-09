@@ -1,0 +1,828 @@
+{
+  "schema_version": 1,
+  "project_version": "0.1.0",
+  "corpus_sha256": "efd6e576e4b9bd7a1cf442b56069d509e47713bb5df0176f568ec7bcc4609eca",
+  "questions_sha256": "bbcd64aa63581a674f002bf0e1b815999a9424e989b9d803164afb3bcd9c53c7",
+  "document_count": 8,
+  "question_count": 12,
+  "answerable_count": 8,
+  "unanswerable_count": 4,
+  "policy": {
+    "minimum_query_coverage": 0.45,
+    "minimum_shared_terms": 2
+  },
+  "bm25": {
+    "k1": 1.2,
+    "b": 0.75
+  },
+  "llm_used": false,
+  "synthetic_data": true,
+  "limitations": [
+    "Corpus pequeño y completamente sintético; no representa documentos o clientes reales.",
+    "No se ejecuta un LLM, ni embeddings, ni generación: este MVP evalúa la recuperación previa a un RAG.",
+    "Una cita íntegra acredita procedencia, no relevancia, veracidad ni suficiencia para responder.",
+    "La abstención usa coincidencias de palabras; puede aceptar preguntas sin respuesta y rechazar paráfrasis válidas.",
+    "Las métricas describen exclusivamente este conjunto versionado; no son una garantía de rendimiento."
+  ],
+  "methods": {
+    "lexical": {
+      "metrics": {
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "mrr_at_3": 1.0,
+        "answerable_coverage": 1.0,
+        "evidence_precision": 0.8,
+        "abstention_recall": 0.5,
+        "unsupported_evidence_rate": 0.5,
+        "citation_integrity": 1.0
+      },
+      "counts": {
+        "citations": 10,
+        "valid_citations": 10,
+        "relevant_citations": 8,
+        "unsupported_evidence": 2,
+        "correct_abstentions": 2
+      },
+      "cases": [
+        {
+          "id": "eval-01",
+          "question": "¿Cuándo se seudonimizan los documentos?",
+          "answerable": true,
+          "gold_document_ids": [
+            "privacy"
+          ],
+          "first_relevant_rank": 1,
+          "status": "evidence_found",
+          "method": "lexical",
+          "retrieved": [
+            {
+              "document_id": "privacy",
+              "score": 1.0
+            }
+          ],
+          "query_coverage": 1.0,
+          "shared_terms": [
+            "documentos",
+            "seudonimizan"
+          ],
+          "citations": [
+            {
+              "document_id": "privacy",
+              "title": "Privacidad documental",
+              "source": "corpus sintético v0.1",
+              "start": 0,
+              "end": 125,
+              "excerpt": "Los documentos de la demo se seudonimizan después de revisión humana. Los originales permanecen en memoria durante la sesión.",
+              "sha256": "d4f397ba2b23a3ed6de001996027f300f035949a982a2e2a69aedfdf39cdaca8"
+            }
+          ],
+          "message": "Fragmento documental recuperado; no constituye una respuesta generada ni valida su aplicabilidad."
+        },
+        {
+          "id": "eval-02",
+          "question": "¿Qué capacidad tienen los vehículos de despacho?",
+          "answerable": true,
+          "gold_document_ids": [
+            "routes"
+          ],
+          "first_relevant_rank": 1,
+          "status": "evidence_found",
+          "method": "lexical",
+          "retrieved": [
+            {
+              "document_id": "routes",
+              "score": 0.75
+            }
+          ],
+          "query_coverage": 0.75,
+          "shared_terms": [
+            "capacidad",
+            "despacho",
+            "vehiculos"
+          ],
+          "citations": [
+            {
+              "document_id": "routes",
+              "title": "Despacho y rutas",
+              "source": "corpus sintético v0.1",
+              "start": 0,
+              "end": 131,
+              "excerpt": "La ruta de despacho admite vehículos de capacidad 50 cajas. La ventana de entrega del almacén norte es entre las 09 y las 12 horas.",
+              "sha256": "c0fd699438bf3bd43272358092d9addf9f0ed7d6e73344779688bff244ca44c5"
+            }
+          ],
+          "message": "Fragmento documental recuperado; no constituye una respuesta generada ni valida su aplicabilidad."
+        },
+        {
+          "id": "eval-03",
+          "question": "¿Cuánto tiempo se conservan registros sintéticos de actividad?",
+          "answerable": true,
+          "gold_document_ids": [
+            "retention"
+          ],
+          "first_relevant_rank": 1,
+          "status": "evidence_found",
+          "method": "lexical",
+          "retrieved": [
+            {
+              "document_id": "retention",
+              "score": 0.6666666667
+            },
+            {
+              "document_id": "review",
+              "score": 0.1666666667
+            }
+          ],
+          "query_coverage": 0.666667,
+          "shared_terms": [
+            "actividad",
+            "conservan",
+            "registros",
+            "sinteticos"
+          ],
+          "citations": [
+            {
+              "document_id": "retention",
+              "title": "Retención de registros",
+              "source": "corpus sintético v0.1",
+              "start": 0,
+              "end": 117,
+              "excerpt": "Los registros sintéticos de actividad se conservan durante 30 días y luego se eliminan en el entorno de demostración.",
+              "sha256": "f9f7eb7356c0c96198f0602897d39d1ed376ef9bc35f9bf9b5229c1ab38b28dd"
+            }
+          ],
+          "message": "Fragmento documental recuperado; no constituye una respuesta generada ni valida su aplicabilidad."
+        },
+        {
+          "id": "eval-04",
+          "question": "¿Cuál es el presupuesto de campaña?",
+          "answerable": true,
+          "gold_document_ids": [
+            "campaign"
+          ],
+          "first_relevant_rank": 1,
+          "status": "evidence_found",
+          "method": "lexical",
+          "retrieved": [
+            {
+              "document_id": "campaign",
+              "score": 1.0
+            }
+          ],
+          "query_coverage": 1.0,
+          "shared_terms": [
+            "campana",
+            "presupuesto"
+          ],
+          "citations": [
+            {
+              "document_id": "campaign",
+              "title": "Campañas de marketing",
+              "source": "corpus sintético v0.1",
+              "start": 0,
+              "end": 139,
+              "excerpt": "El presupuesto de campaña de ejemplo es 200 unidades monetarias. El equipo revisa conversiones por semana, sin atribuir causalidad al ROAS.",
+              "sha256": "04e5150069c25eebf55185c7977a9ed831d9f02c4a6cce1d3f434dc8c9b55e35"
+            }
+          ],
+          "message": "Fragmento documental recuperado; no constituye una respuesta generada ni valida su aplicabilidad."
+        },
+        {
+          "id": "eval-05",
+          "question": "¿Qué horario tiene el soporte técnico?",
+          "answerable": true,
+          "gold_document_ids": [
+            "support"
+          ],
+          "first_relevant_rank": 1,
+          "status": "evidence_found",
+          "method": "lexical",
+          "retrieved": [
+            {
+              "document_id": "support",
+              "score": 0.6666666667
+            }
+          ],
+          "query_coverage": 0.666667,
+          "shared_terms": [
+            "soporte",
+            "tecnico"
+          ],
+          "citations": [
+            {
+              "document_id": "support",
+              "title": "Soporte técnico",
+              "source": "corpus sintético v0.1",
+              "start": 0,
+              "end": 128,
+              "excerpt": "El soporte técnico de la demo atiende de lunes a viernes entre las 10 y las 17 horas. No existe garantía de respuesta inmediata.",
+              "sha256": "ec7b36a11ec736efd8eff68b262ee9f7ff56d134e3dc3efe0df7124668ad248a"
+            }
+          ],
+          "message": "Fragmento documental recuperado; no constituye una respuesta generada ni valida su aplicabilidad."
+        },
+        {
+          "id": "eval-06",
+          "question": "¿Cada cuánto se repone el inventario?",
+          "answerable": true,
+          "gold_document_ids": [
+            "inventory"
+          ],
+          "first_relevant_rank": 1,
+          "status": "evidence_found",
+          "method": "lexical",
+          "retrieved": [
+            {
+              "document_id": "inventory",
+              "score": 0.75
+            }
+          ],
+          "query_coverage": 0.75,
+          "shared_terms": [
+            "cada",
+            "inventario",
+            "repone"
+          ],
+          "citations": [
+            {
+              "document_id": "inventory",
+              "title": "Inventario y demanda",
+              "source": "corpus sintético v0.1",
+              "start": 0,
+              "end": 133,
+              "excerpt": "El inventario del ejemplo se repone cada siete días. El pronóstico de demanda usa datos históricos anteriores a la fecha de decisión.",
+              "sha256": "34bdcc2be458a9d24c2c87b449761e0dde25b77fa301f485e7423d265fbb227a"
+            }
+          ],
+          "message": "Fragmento documental recuperado; no constituye una respuesta generada ni valida su aplicabilidad."
+        },
+        {
+          "id": "eval-07",
+          "question": "¿Quién revisa las cláusulas de contratos?",
+          "answerable": true,
+          "gold_document_ids": [
+            "review"
+          ],
+          "first_relevant_rank": 1,
+          "status": "evidence_found",
+          "method": "lexical",
+          "retrieved": [
+            {
+              "document_id": "review",
+              "score": 0.6666666667
+            },
+            {
+              "document_id": "campaign",
+              "score": 0.3333333333
+            }
+          ],
+          "query_coverage": 0.666667,
+          "shared_terms": [
+            "clausulas",
+            "contratos"
+          ],
+          "citations": [
+            {
+              "document_id": "review",
+              "title": "Revisión contractual",
+              "source": "corpus sintético v0.1",
+              "start": 0,
+              "end": 125,
+              "excerpt": "Las cláusulas de contratos sintéticos se revisan por una persona antes de exportar. La aplicación no emite asesoría jurídica.",
+              "sha256": "e02db7653fe279fb5409e3db088c1b53c580f51a0655715ed55ada91e95b1a6b"
+            }
+          ],
+          "message": "Fragmento documental recuperado; no constituye una respuesta generada ni valida su aplicabilidad."
+        },
+        {
+          "id": "eval-08",
+          "question": "¿Qué registra la evaluación de modelos?",
+          "answerable": true,
+          "gold_document_ids": [
+            "models"
+          ],
+          "first_relevant_rank": 1,
+          "status": "evidence_found",
+          "method": "lexical",
+          "retrieved": [
+            {
+              "document_id": "models",
+              "score": 1.0
+            }
+          ],
+          "query_coverage": 1.0,
+          "shared_terms": [
+            "evaluacion",
+            "modelos",
+            "registra"
+          ],
+          "citations": [
+            {
+              "document_id": "models",
+              "title": "Evaluación de modelos",
+              "source": "corpus sintético v0.1",
+              "start": 0,
+              "end": 144,
+              "excerpt": "La evaluación de modelos registra baseline, conjunto retenido, métricas y errores. Un resultado sintético no acredita rendimiento en producción.",
+              "sha256": "944d951f5b58d14abd61502ce69a5eb266c532d172d394fcd5473f4add6291c4"
+            }
+          ],
+          "message": "Fragmento documental recuperado; no constituye una respuesta generada ni valida su aplicabilidad."
+        },
+        {
+          "id": "eval-09",
+          "question": "¿Cuál es la temperatura de Marte?",
+          "answerable": false,
+          "gold_document_ids": [],
+          "first_relevant_rank": null,
+          "status": "abstained",
+          "method": "lexical",
+          "retrieved": [],
+          "query_coverage": 0.0,
+          "shared_terms": [],
+          "citations": [],
+          "message": "No encontré evidencia léxica suficiente en este corpus sintético."
+        },
+        {
+          "id": "eval-10",
+          "question": "¿Quién ganó el torneo de ajedrez?",
+          "answerable": false,
+          "gold_document_ids": [],
+          "first_relevant_rank": null,
+          "status": "abstained",
+          "method": "lexical",
+          "retrieved": [],
+          "query_coverage": 0.0,
+          "shared_terms": [],
+          "citations": [],
+          "message": "No encontré evidencia léxica suficiente en este corpus sintético."
+        },
+        {
+          "id": "eval-11",
+          "question": "¿Cuál es la multa por retención de registros?",
+          "answerable": false,
+          "gold_document_ids": [],
+          "first_relevant_rank": null,
+          "status": "evidence_found",
+          "method": "lexical",
+          "retrieved": [
+            {
+              "document_id": "retention",
+              "score": 0.6666666667
+            }
+          ],
+          "query_coverage": 0.666667,
+          "shared_terms": [
+            "registros",
+            "retencion"
+          ],
+          "citations": [
+            {
+              "document_id": "retention",
+              "title": "Retención de registros",
+              "source": "corpus sintético v0.1",
+              "start": 0,
+              "end": 117,
+              "excerpt": "Los registros sintéticos de actividad se conservan durante 30 días y luego se eliminan en el entorno de demostración.",
+              "sha256": "f9f7eb7356c0c96198f0602897d39d1ed376ef9bc35f9bf9b5229c1ab38b28dd"
+            }
+          ],
+          "message": "Fragmento documental recuperado; no constituye una respuesta generada ni valida su aplicabilidad."
+        },
+        {
+          "id": "eval-12",
+          "question": "¿El presupuesto de campaña garantiza conversiones?",
+          "answerable": false,
+          "gold_document_ids": [],
+          "first_relevant_rank": null,
+          "status": "evidence_found",
+          "method": "lexical",
+          "retrieved": [
+            {
+              "document_id": "campaign",
+              "score": 0.75
+            }
+          ],
+          "query_coverage": 0.75,
+          "shared_terms": [
+            "campana",
+            "conversiones",
+            "presupuesto"
+          ],
+          "citations": [
+            {
+              "document_id": "campaign",
+              "title": "Campañas de marketing",
+              "source": "corpus sintético v0.1",
+              "start": 0,
+              "end": 139,
+              "excerpt": "El presupuesto de campaña de ejemplo es 200 unidades monetarias. El equipo revisa conversiones por semana, sin atribuir causalidad al ROAS.",
+              "sha256": "04e5150069c25eebf55185c7977a9ed831d9f02c4a6cce1d3f434dc8c9b55e35"
+            }
+          ],
+          "message": "Fragmento documental recuperado; no constituye una respuesta generada ni valida su aplicabilidad."
+        }
+      ]
+    },
+    "bm25": {
+      "metrics": {
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "mrr_at_3": 1.0,
+        "answerable_coverage": 1.0,
+        "evidence_precision": 0.8,
+        "abstention_recall": 0.5,
+        "unsupported_evidence_rate": 0.5,
+        "citation_integrity": 1.0
+      },
+      "counts": {
+        "citations": 10,
+        "valid_citations": 10,
+        "relevant_citations": 8,
+        "unsupported_evidence": 2,
+        "correct_abstentions": 2
+      },
+      "cases": [
+        {
+          "id": "eval-01",
+          "question": "¿Cuándo se seudonimizan los documentos?",
+          "answerable": true,
+          "gold_document_ids": [
+            "privacy"
+          ],
+          "first_relevant_rank": 1,
+          "status": "evidence_found",
+          "method": "bm25",
+          "retrieved": [
+            {
+              "document_id": "privacy",
+              "score": 3.7783538385
+            }
+          ],
+          "query_coverage": 1.0,
+          "shared_terms": [
+            "documentos",
+            "seudonimizan"
+          ],
+          "citations": [
+            {
+              "document_id": "privacy",
+              "title": "Privacidad documental",
+              "source": "corpus sintético v0.1",
+              "start": 0,
+              "end": 125,
+              "excerpt": "Los documentos de la demo se seudonimizan después de revisión humana. Los originales permanecen en memoria durante la sesión.",
+              "sha256": "d4f397ba2b23a3ed6de001996027f300f035949a982a2e2a69aedfdf39cdaca8"
+            }
+          ],
+          "message": "Fragmento documental recuperado; no constituye una respuesta generada ni valida su aplicabilidad."
+        },
+        {
+          "id": "eval-02",
+          "question": "¿Qué capacidad tienen los vehículos de despacho?",
+          "answerable": true,
+          "gold_document_ids": [
+            "routes"
+          ],
+          "first_relevant_rank": 1,
+          "status": "evidence_found",
+          "method": "bm25",
+          "retrieved": [
+            {
+              "document_id": "routes",
+              "score": 5.8883295636
+            }
+          ],
+          "query_coverage": 0.75,
+          "shared_terms": [
+            "capacidad",
+            "despacho",
+            "vehiculos"
+          ],
+          "citations": [
+            {
+              "document_id": "routes",
+              "title": "Despacho y rutas",
+              "source": "corpus sintético v0.1",
+              "start": 0,
+              "end": 131,
+              "excerpt": "La ruta de despacho admite vehículos de capacidad 50 cajas. La ventana de entrega del almacén norte es entre las 09 y las 12 horas.",
+              "sha256": "c0fd699438bf3bd43272358092d9addf9f0ed7d6e73344779688bff244ca44c5"
+            }
+          ],
+          "message": "Fragmento documental recuperado; no constituye una respuesta generada ni valida su aplicabilidad."
+        },
+        {
+          "id": "eval-03",
+          "question": "¿Cuánto tiempo se conservan registros sintéticos de actividad?",
+          "answerable": true,
+          "gold_document_ids": [
+            "retention"
+          ],
+          "first_relevant_rank": 1,
+          "status": "evidence_found",
+          "method": "bm25",
+          "retrieved": [
+            {
+              "document_id": "retention",
+              "score": 7.6831523771
+            },
+            {
+              "document_id": "review",
+              "score": 1.3125185156
+            }
+          ],
+          "query_coverage": 0.666667,
+          "shared_terms": [
+            "actividad",
+            "conservan",
+            "registros",
+            "sinteticos"
+          ],
+          "citations": [
+            {
+              "document_id": "retention",
+              "title": "Retención de registros",
+              "source": "corpus sintético v0.1",
+              "start": 0,
+              "end": 117,
+              "excerpt": "Los registros sintéticos de actividad se conservan durante 30 días y luego se eliminan en el entorno de demostración.",
+              "sha256": "f9f7eb7356c0c96198f0602897d39d1ed376ef9bc35f9bf9b5229c1ab38b28dd"
+            }
+          ],
+          "message": "Fragmento documental recuperado; no constituye una respuesta generada ni valida su aplicabilidad."
+        },
+        {
+          "id": "eval-04",
+          "question": "¿Cuál es el presupuesto de campaña?",
+          "answerable": true,
+          "gold_document_ids": [
+            "campaign"
+          ],
+          "first_relevant_rank": 1,
+          "status": "evidence_found",
+          "method": "bm25",
+          "retrieved": [
+            {
+              "document_id": "campaign",
+              "score": 3.5712419417
+            }
+          ],
+          "query_coverage": 1.0,
+          "shared_terms": [
+            "campana",
+            "presupuesto"
+          ],
+          "citations": [
+            {
+              "document_id": "campaign",
+              "title": "Campañas de marketing",
+              "source": "corpus sintético v0.1",
+              "start": 0,
+              "end": 139,
+              "excerpt": "El presupuesto de campaña de ejemplo es 200 unidades monetarias. El equipo revisa conversiones por semana, sin atribuir causalidad al ROAS.",
+              "sha256": "04e5150069c25eebf55185c7977a9ed831d9f02c4a6cce1d3f434dc8c9b55e35"
+            }
+          ],
+          "message": "Fragmento documental recuperado; no constituye una respuesta generada ni valida su aplicabilidad."
+        },
+        {
+          "id": "eval-05",
+          "question": "¿Qué horario tiene el soporte técnico?",
+          "answerable": true,
+          "gold_document_ids": [
+            "support"
+          ],
+          "first_relevant_rank": 1,
+          "status": "evidence_found",
+          "method": "bm25",
+          "retrieved": [
+            {
+              "document_id": "support",
+              "score": 4.8247120498
+            }
+          ],
+          "query_coverage": 0.666667,
+          "shared_terms": [
+            "soporte",
+            "tecnico"
+          ],
+          "citations": [
+            {
+              "document_id": "support",
+              "title": "Soporte técnico",
+              "source": "corpus sintético v0.1",
+              "start": 0,
+              "end": 128,
+              "excerpt": "El soporte técnico de la demo atiende de lunes a viernes entre las 10 y las 17 horas. No existe garantía de respuesta inmediata.",
+              "sha256": "ec7b36a11ec736efd8eff68b262ee9f7ff56d134e3dc3efe0df7124668ad248a"
+            }
+          ],
+          "message": "Fragmento documental recuperado; no constituye una respuesta generada ni valida su aplicabilidad."
+        },
+        {
+          "id": "eval-06",
+          "question": "¿Cada cuánto se repone el inventario?",
+          "answerable": true,
+          "gold_document_ids": [
+            "inventory"
+          ],
+          "first_relevant_rank": 1,
+          "status": "evidence_found",
+          "method": "bm25",
+          "retrieved": [
+            {
+              "document_id": "inventory",
+              "score": 5.8883295636
+            }
+          ],
+          "query_coverage": 0.75,
+          "shared_terms": [
+            "cada",
+            "inventario",
+            "repone"
+          ],
+          "citations": [
+            {
+              "document_id": "inventory",
+              "title": "Inventario y demanda",
+              "source": "corpus sintético v0.1",
+              "start": 0,
+              "end": 133,
+              "excerpt": "El inventario del ejemplo se repone cada siete días. El pronóstico de demanda usa datos históricos anteriores a la fecha de decisión.",
+              "sha256": "34bdcc2be458a9d24c2c87b449761e0dde25b77fa301f485e7423d265fbb227a"
+            }
+          ],
+          "message": "Fragmento documental recuperado; no constituye una respuesta generada ni valida su aplicabilidad."
+        },
+        {
+          "id": "eval-07",
+          "question": "¿Quién revisa las cláusulas de contratos?",
+          "answerable": true,
+          "gold_document_ids": [
+            "review"
+          ],
+          "first_relevant_rank": 1,
+          "status": "evidence_found",
+          "method": "bm25",
+          "retrieved": [
+            {
+              "document_id": "review",
+              "score": 3.6718796794
+            },
+            {
+              "document_id": "campaign",
+              "score": 1.7856209709
+            }
+          ],
+          "query_coverage": 0.666667,
+          "shared_terms": [
+            "clausulas",
+            "contratos"
+          ],
+          "citations": [
+            {
+              "document_id": "review",
+              "title": "Revisión contractual",
+              "source": "corpus sintético v0.1",
+              "start": 0,
+              "end": 125,
+              "excerpt": "Las cláusulas de contratos sintéticos se revisan por una persona antes de exportar. La aplicación no emite asesoría jurídica.",
+              "sha256": "e02db7653fe279fb5409e3db088c1b53c580f51a0655715ed55ada91e95b1a6b"
+            }
+          ],
+          "message": "Fragmento documental recuperado; no constituye una respuesta generada ni valida su aplicabilidad."
+        },
+        {
+          "id": "eval-08",
+          "question": "¿Qué registra la evaluación de modelos?",
+          "answerable": true,
+          "gold_document_ids": [
+            "models"
+          ],
+          "first_relevant_rank": 1,
+          "status": "evidence_found",
+          "method": "bm25",
+          "retrieved": [
+            {
+              "document_id": "models",
+              "score": 6.5626988192
+            }
+          ],
+          "query_coverage": 1.0,
+          "shared_terms": [
+            "evaluacion",
+            "modelos",
+            "registra"
+          ],
+          "citations": [
+            {
+              "document_id": "models",
+              "title": "Evaluación de modelos",
+              "source": "corpus sintético v0.1",
+              "start": 0,
+              "end": 144,
+              "excerpt": "La evaluación de modelos registra baseline, conjunto retenido, métricas y errores. Un resultado sintético no acredita rendimiento en producción.",
+              "sha256": "944d951f5b58d14abd61502ce69a5eb266c532d172d394fcd5473f4add6291c4"
+            }
+          ],
+          "message": "Fragmento documental recuperado; no constituye una respuesta generada ni valida su aplicabilidad."
+        },
+        {
+          "id": "eval-09",
+          "question": "¿Cuál es la temperatura de Marte?",
+          "answerable": false,
+          "gold_document_ids": [],
+          "first_relevant_rank": null,
+          "status": "abstained",
+          "method": "bm25",
+          "retrieved": [],
+          "query_coverage": 0.0,
+          "shared_terms": [],
+          "citations": [],
+          "message": "No encontré evidencia léxica suficiente en este corpus sintético."
+        },
+        {
+          "id": "eval-10",
+          "question": "¿Quién ganó el torneo de ajedrez?",
+          "answerable": false,
+          "gold_document_ids": [],
+          "first_relevant_rank": null,
+          "status": "abstained",
+          "method": "bm25",
+          "retrieved": [],
+          "query_coverage": 0.0,
+          "shared_terms": [],
+          "citations": [],
+          "message": "No encontré evidencia léxica suficiente en este corpus sintético."
+        },
+        {
+          "id": "eval-11",
+          "question": "¿Cuál es la multa por retención de registros?",
+          "answerable": false,
+          "gold_document_ids": [],
+          "first_relevant_rank": null,
+          "status": "evidence_found",
+          "method": "bm25",
+          "retrieved": [
+            {
+              "document_id": "retention",
+              "score": 4.4433976056
+            }
+          ],
+          "query_coverage": 0.666667,
+          "shared_terms": [
+            "registros",
+            "retencion"
+          ],
+          "citations": [
+            {
+              "document_id": "retention",
+              "title": "Retención de registros",
+              "source": "corpus sintético v0.1",
+              "start": 0,
+              "end": 117,
+              "excerpt": "Los registros sintéticos de actividad se conservan durante 30 días y luego se eliminan en el entorno de demostración.",
+              "sha256": "f9f7eb7356c0c96198f0602897d39d1ed376ef9bc35f9bf9b5229c1ab38b28dd"
+            }
+          ],
+          "message": "Fragmento documental recuperado; no constituye una respuesta generada ni valida su aplicabilidad."
+        },
+        {
+          "id": "eval-12",
+          "question": "¿El presupuesto de campaña garantiza conversiones?",
+          "answerable": false,
+          "gold_document_ids": [],
+          "first_relevant_rank": null,
+          "status": "evidence_found",
+          "method": "bm25",
+          "retrieved": [
+            {
+              "document_id": "campaign",
+              "score": 5.3568629126
+            }
+          ],
+          "query_coverage": 0.75,
+          "shared_terms": [
+            "campana",
+            "conversiones",
+            "presupuesto"
+          ],
+          "citations": [
+            {
+              "document_id": "campaign",
+              "title": "Campañas de marketing",
+              "source": "corpus sintético v0.1",
+              "start": 0,
+              "end": 139,
+              "excerpt": "El presupuesto de campaña de ejemplo es 200 unidades monetarias. El equipo revisa conversiones por semana, sin atribuir causalidad al ROAS.",
+              "sha256": "04e5150069c25eebf55185c7977a9ed831d9f02c4a6cce1d3f434dc8c9b55e35"
+            }
+          ],
+          "message": "Fragmento documental recuperado; no constituye una respuesta generada ni valida su aplicabilidad."
+        }
+      ]
+    }
+  },
+  "run_id": "6c46e9d4524d06ae"
+}

@@ -41,3 +41,15 @@ El deploy a GitHub Pages es automático vía GitHub Actions ([`.github/workflows
 cada push a `main` construye el sitio y lo publica.
 
 En GitHub, en **Settings → Pages**, la fuente ("Build and deployment") debe estar configurada en **GitHub Actions** (no en una rama).
+
+
+## Demos reproducibles y CV
+
+El portafolio presenta ocho casos con alcance explícito: cinco proyectos iniciales, DemandLab, LLM Evidence Lab y el core de ComplianceAI Chile. La información de trayectoria y el CV anterior se conservan; el CV enfocado en AI Engineer vive en `public/cv/Ethan-Astorga-AI-Engineer.pdf`.
+
+- `labs/demandlab`: modelo ridge real, baseline estacional, backtesting y 19 pruebas.
+- `labs/llm-evidence-lab`: recuperación, evaluación, citas, abstención y adaptador opcional de Ollama; 12 pruebas. No se ejecutó un LLM real.
+- `public/demos`: informes HTML/JSON sintéticos y código descargable de los dos laboratorios públicos.
+- `src/data/researchStudies.ts`: fichas nuevas, con métricas y límites.
+
+Ejecutar cada laboratorio desde su carpeta con `python -m unittest discover -s tests -v`. Las demos se regeneran con `python -m demandlab demo` y `python -m llm_evidence_lab evaluate`. Después de modificar un laboratorio, regenerar su informe y ZIP público para mantener código y evidencia alineados. No publicar informes de datos privados como si fueran las demos sintéticas.

@@ -1,0 +1,24 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ComplianceAI Chile | Demo de investigación</title><style>
+:root{color-scheme:light dark;--bg:#f5f3ed;--fg:#182327;--card:#fff;--line:#cad4d3;--accent:#087f72}
+@media(prefers-color-scheme:dark){:root{--bg:#101b20;--fg:#edf4f1;--card:#192b31;--line:#395258;--accent:#57dfb2}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 system-ui,sans-serif}
+main{max-width:1120px;margin:auto;padding:48px 24px}.eyebrow{text-transform:uppercase;font-size:12px;letter-spacing:.1em;color:var(--accent)}
+h1{font-size:clamp(32px,5vw,62px);line-height:1.08;max-width:850px;letter-spacing:-.045em}
+h2{margin-top:44px}.intro{max-width:750px}.badge{border:1px solid var(--accent);border-radius:20px;display:inline-block;padding:4px 12px;font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}article{background:var(--card);border:1px solid var(--line);padding:22px;border-radius:12px}
+strong{font-size:48px;display:block}small{font-size:13px;font-weight:400}.bar{height:7px;background:var(--line);border-radius:8px;overflow:hidden}
+.bar span{display:block;height:100%;background:var(--accent)}.result{margin:14px 0}.result h3{margin-top:0}li{margin:10px 0}
+a{color:var(--accent)}footer{border-top:1px solid var(--line);margin-top:36px;padding-top:18px;font-size:13px}
+@media(max-width:650px){.grid{grid-template-columns:1fr}main{padding:28px 18px}}
+</style></head><body><main><span class="badge">MVP de investigación · Datos sintéticos</span>
+<p class="eyebrow">ComplianceAI Chile / Evidencia reproducible</p><h1>Evaluar controles.<br>Recuperar evidencia.</h1>
+<p class="intro">Demostración del motor de 14 preguntas y 7 dominios, más recuperación léxica con filtrado por rol.
+Se ejecuta sin Postgres ni LLM y bloquea las conexiones de red durante el cálculo.</p>
+<h2>Tres escenarios controlados</h2><p>Los extremos y el punto medio verifican la fórmula. Estos puntajes no son una certificación de cumplimiento.</p>
+<section class="grid"><article><p>Sin evidencia</p><strong>0<small>/100</small></strong><div class="bar"><span style="width:0%"></span></div></article><article><p>Evidencia parcial</p><strong>50<small>/100</small></strong><div class="bar"><span style="width:50%"></span></div></article><article><p>Evidencia completa</p><strong>100<small>/100</small></strong><div class="bar"><span style="width:100%"></span></div></article></section><h2>Recuperación de documentos sintéticos</h2>
+<p>La similitud ordena coincidencias de texto. El rol filtra qué documentos pueden entrar al ranking.</p><article class="result"><p class="eyebrow">Rol: cliente</p><h3>copias de respaldo restauracion</h3><ol><li><b>DEMO-01</b> · Realizar copias de respaldo de informacion y verificar restauracion. <small>Similitud: 0.758</small></li><li><b>DEMO-02</b> · Mantener inventario de activos y asignar responsables de cada sistema. <small>Similitud: 0.048</small></li></ol></article><article class="result"><p class="eyebrow">Rol: cliente</p><h3>inventario activos responsables</h3><ol><li><b>DEMO-02</b> · Mantener inventario de activos y asignar responsables de cada sistema. <small>Similitud: 0.695</small></li><li><b>DEMO-01</b> · Realizar copias de respaldo de informacion y verificar restauracion. <small>Similitud: 0.162</small></li></ol></article><article class="result"><p class="eyebrow">Rol: auditor</p><h3>auditoria interna reservada</h3><ol><li><b>DEMO-03</b> · Informe de auditoria interna reservado para el equipo auditor. <small>Similitud: 0.597</small></li><li><b>DEMO-02</b> · Mantener inventario de activos y asignar responsables de cada sistema. <small>Similitud: 0.144</small></li></ol></article>
+<h2>Alcance de esta evidencia</h2><ul><li>Escenarios y documentos inventados para esta demostración; no son datos de clientes.</li><li>Recuperación léxica por hashing, sin LLM ni embeddings entrenados.</li><li>El score verifica la fórmula implementada y no demuestra cumplimiento legal.</li><li>No evalúa autenticación, persistencia, aislamiento entre clientes ni seguridad integral.</li><li>Las referencias legales y métricas económicas del producto completo requieren revisión independiente.</li></ul><footer><a href="report.json">Abrir evidencia JSON</a>
+ · Regenerar: <code>python scripts/research_demo.py</code><p>La demo no mide calidad de un modelo generativo.</p>
+</footer></main></body></html>

@@ -1,0 +1,117 @@
+{
+  "project": "DemandLab",
+  "version": "0.1.0",
+  "status": "MVP de investigación",
+  "validation": {
+    "command": "python scripts/verify_mvp.py",
+    "python": "3.12.13",
+    "tests_passed": 19,
+    "tests_failed": 0,
+    "tests_errors": 0,
+    "tests_skipped": 0
+  },
+  "dataset": {
+    "kind": "synthetic",
+    "seed": 20260907,
+    "sha256": "8a32bab7b932ba7f785aea89b9ba0c71bce3892e4d020da4218bbd086ae7b04a",
+    "observations": 630,
+    "sku_count": 3
+  },
+  "methodology": {
+    "frequency": "daily",
+    "strategy": "expanding_window_recursive",
+    "folds": 3,
+    "horizon_days": 14,
+    "ridge_alpha": 1.0,
+    "history_days": 28,
+    "normalization": "training_only",
+    "hyperparameters": "fixed_before_evaluation",
+    "baseline": "seasonal_naive_7_days",
+    "test_labels_used_in_forecast": false,
+    "sku_calendar_alignment": "independent_last_windows_per_sku"
+  },
+  "aggregate": {
+    "seasonal": {
+      "mae": 4.3516666666666675,
+      "wape_percent": 4.941853391051831,
+      "absolute_error": 548.3100000000001,
+      "actual_total": 11095.23,
+      "n": 126
+    },
+    "ridge": {
+      "mae": 3.1072503126988,
+      "wape_percent": 3.5286653760223876,
+      "absolute_error": 391.5135394000488,
+      "actual_total": 11095.23,
+      "n": 126
+    }
+  },
+  "by_sku": [
+    {
+      "sku": "DRINK-002",
+      "metrics": {
+        "seasonal": {
+          "mae": 4.036904761904765,
+          "wape_percent": 3.8340038034764974,
+          "absolute_error": 169.55000000000013,
+          "actual_total": 4422.27,
+          "n": 42
+        },
+        "ridge": {
+          "mae": 2.7058586165718417,
+          "wape_percent": 2.5698580569711336,
+          "absolute_error": 113.64606189601736,
+          "actual_total": 4422.27,
+          "n": 42
+        }
+      }
+    },
+    {
+      "sku": "PACK-001",
+      "metrics": {
+        "seasonal": {
+          "mae": 4.300476190476189,
+          "wape_percent": 3.761584438844575,
+          "absolute_error": 180.61999999999995,
+          "actual_total": 4801.7,
+          "n": 42
+        },
+        "ridge": {
+          "mae": 3.6961587195539725,
+          "wape_percent": 3.2329938609506392,
+          "absolute_error": 155.23866622126684,
+          "actual_total": 4801.7,
+          "n": 42
+        }
+      }
+    },
+    {
+      "sku": "PART-003",
+      "metrics": {
+        "seasonal": {
+          "mae": 4.717619047619048,
+          "wape_percent": 10.588587368938578,
+          "absolute_error": 198.14000000000001,
+          "actual_total": 1871.26,
+          "n": 42
+        },
+        "ridge": {
+          "mae": 2.919733601970586,
+          "wape_percent": 6.553274867349519,
+          "absolute_error": 122.62881128276462,
+          "actual_total": 1871.26,
+          "n": 42
+        }
+      }
+    }
+  ],
+  "ridge_mae_reduction_percent": 28.596316062072784,
+  "limits": [
+    "La demo usa datos sintéticos; sus métricas no predicen resultados de una empresa.",
+    "La demanda observada se asume completa: no modela ventas perdidas por quiebres de stock.",
+    "No incluye promociones, festivos, intervalos de incertidumbre ni costos de inventario.",
+    "No selecciona hiperparámetros sobre los bloques de evaluación.",
+    "Cada SKU se evalúa en sus últimas ventanas disponibles; sus calendarios pueden diferir.",
+    "No toma decisiones de compra ni garantiza mejoras sobre la referencia estacional."
+  ]
+}

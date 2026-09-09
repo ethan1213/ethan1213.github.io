@@ -1,0 +1,4 @@
+*.pdf binary
+*.zip binary
+*.jsonl text eol=lf
+public/demos/** -text whitespace=cr-at-eol

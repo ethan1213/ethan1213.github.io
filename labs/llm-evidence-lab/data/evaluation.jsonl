@@ -1,0 +1,12 @@
+{"id": "eval-01", "question": "¿Cuándo se seudonimizan los documentos?", "gold_document_ids": ["privacy"], "answerable": true}
+{"id": "eval-02", "question": "¿Qué capacidad tienen los vehículos de despacho?", "gold_document_ids": ["routes"], "answerable": true}
+{"id": "eval-03", "question": "¿Cuánto tiempo se conservan registros sintéticos de actividad?", "gold_document_ids": ["retention"], "answerable": true}
+{"id": "eval-04", "question": "¿Cuál es el presupuesto de campaña?", "gold_document_ids": ["campaign"], "answerable": true}
+{"id": "eval-05", "question": "¿Qué horario tiene el soporte técnico?", "gold_document_ids": ["support"], "answerable": true}
+{"id": "eval-06", "question": "¿Cada cuánto se repone el inventario?", "gold_document_ids": ["inventory"], "answerable": true}
+{"id": "eval-07", "question": "¿Quién revisa las cláusulas de contratos?", "gold_document_ids": ["review"], "answerable": true}
+{"id": "eval-08", "question": "¿Qué registra la evaluación de modelos?", "gold_document_ids": ["models"], "answerable": true}
+{"id": "eval-09", "question": "¿Cuál es la temperatura de Marte?", "gold_document_ids": [], "answerable": false}
+{"id": "eval-10", "question": "¿Quién ganó el torneo de ajedrez?", "gold_document_ids": [], "answerable": false}
+{"id": "eval-11", "question": "¿Cuál es la multa por retención de registros?", "gold_document_ids": [], "answerable": false}
+{"id": "eval-12", "question": "¿El presupuesto de campaña garantiza conversiones?", "gold_document_ids": [], "answerable": false}
